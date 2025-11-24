@@ -127,9 +127,9 @@
                         <li class="pc-item pc-hasmenu">
                             <a href="#" class="pc-link"><i class="fa-solid fa-money-check-dollar"></i> Bank Report<span class="pc-arrow"><i data-feather="chevron-right"></i></span></a>
                             <ul class="pc-submenu">
-                                <li class="pc-item"><a class="pc-link" href="#"><i class="fa-solid fa-money-bill-1-wave"></i> Total Diposit</a></li>
-                                <li class="pc-item"><a class="pc-link" href="#"><i class="fa-solid fa-money-bill-trend-up"></i> Total Withdraw</a></li>
-                                <li class="pc-item"><a class="pc-link" href="#"><i class="fa-solid fa-yen-sign"></i> Total Transection</a></li>
+                                <li class="pc-item"><a class="pc-link" href="{{ url('/total-diposit') }}"><i class="fa-solid fa-money-bill-1-wave"></i> Total Diposit</a></li>
+                                <li class="pc-item"><a class="pc-link" href="{{ url('/total-withdraw') }}"><i class="fa-solid fa-money-bill-trend-up"></i> Total Withdraw</a></li>
+                                <li class="pc-item"><a class="pc-link" href="{{ route('total-transection') }}"><i class="fa-solid fa-yen-sign"></i> Total Transection</a></li>
                             </ul>
                         </li>
                     </ul>

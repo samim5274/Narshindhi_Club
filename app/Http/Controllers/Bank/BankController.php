@@ -181,4 +181,91 @@ class BankController extends Controller
 
         return back()->with('success', 'Bank to bank transection completed successfully.');
     }
+
+    public function totalTransectionReport(){
+        $company = Company::first();
+        $transectionDetails = BankTransectionDetail::orderBy('date', 'desc')->get();
+        $balance = BankTransectionDetail::where('date', Carbon::now()->format('Y-m-d'))
+                    ->where('status', 'Deposit')
+                    ->sum('amount') - BankTransectionDetail::where('date', Carbon::now()->format('Y-m-d'))
+                    ->where('status', 'Withdraw')
+                    ->sum('amount');    
+        return view('bank.report.total-transection-report', compact('company','transectionDetails','balance'));
+    }
+
+    public function filterTransectionDate(Request $request){
+        $request->validate([
+            'from_date' => 'required|date',
+            'to_date' => 'required|date|after_or_equal:from_date',
+        ]);
+
+        $company = Company::first();
+        $transectionDetails = BankTransectionDetail::whereBetween('date', [$request->from_date, $request->to_date])
+                                    ->orderBy('date', 'desc')
+                                    ->get();
+        $balance = BankTransectionDetail::whereBetween('date', [$request->from_date, $request->to_date])
+                    ->where('status', 'Deposit')
+                    ->sum('amount') - BankTransectionDetail::whereBetween('date', [$request->from_date, $request->to_date])
+                    ->where('status', 'Withdraw')
+                    ->sum('amount');    
+        return view('bank.report.total-transection-report', compact('company','transectionDetails','balance'));
+    }
+
+    public function totalDiposit(){
+        $company = Company::first();
+        $bankDetails = BankDetail::all();
+        $dipositDetails = BankTransectionDetail::where('status','Deposit')->orderBy('date', 'desc')->get();
+        $balance = BankTransectionDetail::where('status', 'Deposit')->sum('amount');
+        return view('bank.report.total-diposit-report', compact('company','dipositDetails','balance','bankDetails'));
+    }
+
+    public function filterDipositDate(Request $request){
+        $request->validate([
+            'from_date' => 'required|date',
+            'to_date' => 'required|date|after_or_equal:from_date',
+            'bank_name' => 'exists:bank_details,id',
+        ]);
+
+        $company = Company::first();
+        $bankDetails = BankDetail::all();
+        $dipositDetails = BankTransectionDetail::where('status','Deposit')
+                                ->where('bank_id', $request->bank_name)
+                                ->whereBetween('date', [$request->from_date, $request->to_date])
+                                ->orderBy('date', 'desc')
+                                ->get();
+        $balance = BankTransectionDetail::where('status', 'Deposit')
+                    ->whereBetween('date', [$request->from_date, $request->to_date])
+                    ->where('bank_id', $request->bank_name)
+                    ->sum('amount');
+        return view('bank.report.total-diposit-report', compact('company','dipositDetails','balance','bankDetails'));
+    }
+
+    public function totalWithdraw(){
+        $company = Company::first();
+        $bankDetails = BankDetail::all();
+        $withdrawDetails = BankTransectionDetail::where('status','Withdraw')->orderBy('date', 'desc')->get();
+        $balance = BankTransectionDetail::where('status', 'Withdraw')->sum('amount');
+        return view('bank.report.total-withdraw-report', compact('company','withdrawDetails','balance','bankDetails'));
+    }
+
+    public function filterWithdrawDate(Request $request){
+        $request->validate([
+            'from_date' => 'required|date',
+            'to_date' => 'required|date|after_or_equal:from_date',
+            'bank_name' => 'exists:bank_details,id',
+        ]);
+
+        $company = Company::first();
+        $bankDetails = BankDetail::all();
+        $withdrawDetails = BankTransectionDetail::where('status','Withdraw')
+                                ->where('bank_id', $request->bank_name)
+                                ->whereBetween('date', [$request->from_date, $request->to_date])
+                                ->orderBy('date', 'desc')
+                                ->get();
+        $balance = BankTransectionDetail::where('status', 'Withdraw')
+                    ->whereBetween('date', [$request->from_date, $request->to_date])
+                    ->where('bank_id', $request->bank_name)
+                    ->sum('amount');
+        return view('bank.report.total-withdraw-report', compact('company','withdrawDetails','balance','bankDetails'));
+    }
 }

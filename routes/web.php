@@ -95,4 +95,10 @@ Route::group(['middleware' => ['admin']], function (){
     Route::post('/bank-withdraw-amount', [BankController::class, 'bankWithdrawAmount']);
     Route::get('/bank-to-transection-view', [BankController::class, 'bankToTransectionView'])->name('bank-to-transection-view');
     Route::post('/bank-to-bank-transection', [BankController::class, 'bankToBankTransection']);
+    Route::get('/total-transection-report', [BankController::class, 'totalTransectionReport'])->name('total-transection');
+    Route::get('/filter-transection-date', [BankController::class, 'filterTransectionDate'])->name('filter-transection-date');
+    Route::get('/total-diposit', [BankController::class, 'totalDiposit'])->name('total-diposit');
+    Route::get('/filter-total-diposit-date', [BankController::class, 'filterDipositDate'])->name('filter-total-diposit-date');
+    Route::get('/total-withdraw', [BankController::class, 'totalWithdraw'])->name('total-withdraw');
+    Route::get('/filter-total-Withdraw-date', [BankController::class, 'filterWithdrawDate'])->name('filter-total-Withdraw-date');
 });

@@ -83,7 +83,7 @@
                                     <select name="from_bank" id="from_bank" class="form-select form-select" required>
                                         <option value="">-- Select Bank --</option>
                                         @foreach($bankDetails as $bank)
-                                            <option value="{{ $bank->id }}">{{ $bank->bank_name }}</option>
+                                            <option value="{{ $bank->id }}">{{ $bank->bank_name }} - {{ $bank->account_number }}</option>
                                         @endforeach
                                     </select>
                                 </div>
@@ -94,7 +94,7 @@
                                     <select name="to_bank" id="to_bank" class="form-select form-select" required>
                                         <option value="">-- Select Bank --</option>
                                         @foreach($bankDetails as $bank)
-                                            <option value="{{ $bank->id }}">{{ $bank->bank_name }}</option>
+                                            <option value="{{ $bank->id }}">{{ $bank->bank_name }} - {{ $bank->account_number }}</option>
                                         @endforeach
                                     </select>
                                 </div>
