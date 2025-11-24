@@ -197,7 +197,7 @@
                                     </div>
                                 </div><hr>
 
-                                <div id="customer-info" style="display: none; margin-top: 10px;">
+                                <div id="customer-info" style="margin-top: 10px;">
                                     <label for="customerName">Customer Name:</label>
                                     <input type="text" name="txtCustomerName" id="customerName" value="Samim Hossain" placeholder="Enter Name" class="form-control mb-2">
 

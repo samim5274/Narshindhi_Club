@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost
--- Generation Time: Nov 24, 2025 at 01:02 PM
+-- Generation Time: Nov 24, 2025 at 02:12 PM
 -- Server version: 10.4.32-MariaDB
 -- PHP Version: 8.2.12
 
@@ -127,6 +127,43 @@ CREATE TABLE `carts` (
   `updated_at` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
+--
+-- Dumping data for table `carts`
+--
+
+INSERT INTO `carts` (`id`, `reg`, `date`, `userId`, `foodId`, `quantity`, `price`, `created_at`, `updated_at`) VALUES
+(1, 2025112411, '2025-11-24', 1, 1, 1, 250, '2025-11-24 12:11:43', '2025-11-24 12:11:43'),
+(2, 2025112411, '2025-11-24', 1, 3, 1, 180, '2025-11-24 12:11:44', '2025-11-24 12:11:44'),
+(3, 2025112411, '2025-11-24', 1, 2, 1, 800, '2025-11-24 12:11:46', '2025-11-24 12:11:46'),
+(4, 2025112412, '2025-11-24', 1, 1, 1, 250, '2025-11-24 12:15:20', '2025-11-24 12:15:20'),
+(5, 2025112412, '2025-11-24', 1, 3, 1, 180, '2025-11-24 12:15:21', '2025-11-24 12:15:21'),
+(6, 2025112412, '2025-11-24', 1, 2, 1, 800, '2025-11-24 12:15:21', '2025-11-24 12:15:21'),
+(7, 2025112412, '2025-11-24', 1, 6, 1, 150, '2025-11-24 12:15:22', '2025-11-24 12:15:22'),
+(8, 2025112412, '2025-11-24', 1, 5, 1, 200, '2025-11-24 12:15:23', '2025-11-24 12:15:23'),
+(9, 2025112413, '2025-11-24', 1, 1, 1, 250, '2025-11-24 12:17:02', '2025-11-24 12:17:02'),
+(10, 2025112413, '2025-11-24', 1, 3, 1, 180, '2025-11-24 12:17:05', '2025-11-24 12:17:05'),
+(11, 2025112414, '2025-11-24', 1, 1, 1, 250, '2025-11-24 12:17:22', '2025-11-24 12:17:22'),
+(12, 2025112414, '2025-11-24', 1, 3, 1, 180, '2025-11-24 12:17:23', '2025-11-24 12:17:23'),
+(13, 2025112414, '2025-11-24', 1, 10, 1, 120, '2025-11-24 12:17:29', '2025-11-24 12:17:29'),
+(14, 2025112415, '2025-11-24', 1, 1, 1, 250, '2025-11-24 12:25:55', '2025-11-24 12:25:55'),
+(15, 2025112415, '2025-11-24', 1, 3, 1, 180, '2025-11-24 12:25:57', '2025-11-24 12:25:57'),
+(16, 2025112415, '2025-11-24', 1, 2, 1, 800, '2025-11-24 12:25:58', '2025-11-24 12:25:58'),
+(17, 2025112415, '2025-11-24', 1, 6, 1, 150, '2025-11-24 12:26:00', '2025-11-24 12:26:00'),
+(18, 2025112415, '2025-11-24', 1, 5, 1, 200, '2025-11-24 12:26:00', '2025-11-24 12:26:00'),
+(19, 2025112416, '2025-11-24', 1, 1, 1, 250, '2025-11-24 12:26:27', '2025-11-24 12:26:27'),
+(20, 2025112416, '2025-11-24', 1, 3, 1, 180, '2025-11-24 12:26:28', '2025-11-24 12:26:28'),
+(21, 2025112416, '2025-11-24', 1, 2, 1, 800, '2025-11-24 12:26:29', '2025-11-24 12:26:29'),
+(22, 2025112416, '2025-11-24', 1, 6, 1, 150, '2025-11-24 12:26:30', '2025-11-24 12:26:30'),
+(23, 2025112416, '2025-11-24', 1, 5, 1, 200, '2025-11-24 12:26:30', '2025-11-24 12:26:30'),
+(24, 2025112416, '2025-11-24', 1, 9, 1, 500, '2025-11-24 12:26:31', '2025-11-24 12:26:31'),
+(25, 2025112416, '2025-11-24', 1, 10, 1, 120, '2025-11-24 12:26:32', '2025-11-24 12:26:32'),
+(26, 2025112417, '2025-11-24', 1, 1, 1, 250, '2025-11-24 12:28:38', '2025-11-24 12:28:38'),
+(27, 2025112417, '2025-11-24', 1, 3, 1, 180, '2025-11-24 12:28:39', '2025-11-24 12:28:39'),
+(28, 2025112417, '2025-11-24', 1, 2, 1, 800, '2025-11-24 12:28:39', '2025-11-24 12:28:39'),
+(29, 2025112418, '2025-11-24', 1, 1, 1, 250, '2025-11-24 12:28:55', '2025-11-24 12:28:55'),
+(30, 2025112418, '2025-11-24', 1, 3, 1, 180, '2025-11-24 12:28:56', '2025-11-24 12:28:56'),
+(31, 2025112418, '2025-11-24', 1, 6, 1, 150, '2025-11-24 12:28:58', '2025-11-24 12:28:58');
+
 -- --------------------------------------------------------
 
 --
@@ -190,6 +227,13 @@ CREATE TABLE `expenses` (
   `updated_at` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
+--
+-- Dumping data for table `expenses`
+--
+
+INSERT INTO `expenses` (`id`, `category_id`, `subcategory_id`, `user_id`, `title`, `description`, `amount`, `expense_date`, `created_at`, `updated_at`) VALUES
+(1, 6, 17, 1, 'Convention Hall Expenses', 'N/A', 5000.00, '2025-11-24', '2025-11-24 12:09:17', '2025-11-24 12:09:17');
+
 -- --------------------------------------------------------
 
 --
@@ -213,7 +257,8 @@ INSERT INTO `expense_categories` (`id`, `name`, `description`, `created_at`, `up
 (2, 'Food', 'Food & Beverages', '2025-11-24 09:35:52', '2025-11-24 09:35:52'),
 (3, 'Travel', 'Travel and transportation', '2025-11-24 09:35:52', '2025-11-24 09:35:52'),
 (4, 'Utilities', 'Electricity, Water, Internet, etc.', '2025-11-24 09:35:52', '2025-11-24 09:35:52'),
-(5, 'Maintenance', 'Repairs & maintenance', '2025-11-24 09:35:52', '2025-11-24 09:35:52');
+(5, 'Maintenance', 'Repairs & maintenance', '2025-11-24 09:35:52', '2025-11-24 09:35:52'),
+(6, 'Convention Hall', 'N/A', '2025-11-24 12:07:42', '2025-11-24 12:07:42');
 
 -- --------------------------------------------------------
 
@@ -250,7 +295,9 @@ INSERT INTO `expense_subcategories` (`id`, `category_id`, `name`, `description`,
 (13, 4, 'Gas', 'Gas expense under Utilities', '2025-11-24 09:35:52', '2025-11-24 09:35:52'),
 (14, 5, 'Plumbing', 'Plumbing expense under Maintenance', '2025-11-24 09:35:52', '2025-11-24 09:35:52'),
 (15, 5, 'Electrical', 'Electrical expense under Maintenance', '2025-11-24 09:35:52', '2025-11-24 09:35:52'),
-(16, 5, 'Cleaning', 'Cleaning expense under Maintenance', '2025-11-24 09:35:52', '2025-11-24 09:35:52');
+(16, 5, 'Cleaning', 'Cleaning expense under Maintenance', '2025-11-24 09:35:52', '2025-11-24 09:35:52'),
+(17, 6, 'Convention Hall', 'N/A', '2025-11-24 12:07:57', '2025-11-24 12:07:57'),
+(18, 6, 'Convention Maintanance', 'N/A', '2025-11-24 12:08:36', '2025-11-24 12:08:36');
 
 -- --------------------------------------------------------
 
@@ -294,16 +341,16 @@ CREATE TABLE `food` (
 --
 
 INSERT INTO `food` (`id`, `name`, `price`, `category_id`, `stock`, `status`, `image`, `ingredients`, `sku`, `remark`, `created_at`, `updated_at`) VALUES
-(1, 'Cheese Burger', 250, 1, 50, 1, 'cheese_burger.jpg', 'Bun, Cheese, Patty, Lettuce, Tomato', 'OJI2VVDC', 'Best seller', '2025-11-24 09:35:52', '2025-11-24 09:35:52'),
-(2, 'Pepperoni Pizza', 800, 2, 30, 1, 'pepperoni_pizza.jpg', 'Dough, Cheese, Pepperoni, Tomato Sauce', '4DGR5WWH', 'Spicy and hot', '2025-11-24 09:35:52', '2025-11-24 09:35:52'),
-(3, 'Chicken Sandwich', 180, 3, 40, 1, 'chicken_sandwich.jpg', 'Bread, Chicken, Lettuce, Mayo', 'JFGHZXSQ', '', '2025-11-24 09:35:52', '2025-11-24 09:35:52'),
+(1, 'Cheese Burger', 250, 1, 42, 1, 'cheese_burger.jpg', 'Bun, Cheese, Patty, Lettuce, Tomato', 'OJI2VVDC', 'Best seller', '2025-11-24 09:35:52', '2025-11-24 12:28:55'),
+(2, 'Pepperoni Pizza', 800, 2, 25, 1, 'pepperoni_pizza.jpg', 'Dough, Cheese, Pepperoni, Tomato Sauce', '4DGR5WWH', 'Spicy and hot', '2025-11-24 09:35:52', '2025-11-24 12:28:39'),
+(3, 'Chicken Sandwich', 180, 3, 32, 1, 'chicken_sandwich.jpg', 'Bread, Chicken, Lettuce, Mayo', 'JFGHZXSQ', '', '2025-11-24 09:35:52', '2025-11-24 12:28:56'),
 (4, 'Spaghetti Bolognese', 350, 4, 20, 1, 'spaghetti.jpg', 'Spaghetti, Tomato Sauce, Beef', 'UZP4QSCN', '', '2025-11-24 09:35:52', '2025-11-24 09:35:52'),
-(5, 'Caesar Salad', 200, 5, 25, 1, 'caesar_salad.jpg', 'Lettuce, Chicken, Caesar Dressing, Croutons', 'RT8HKU7Y', '', '2025-11-24 09:35:52', '2025-11-24 09:35:52'),
-(6, 'Chocolate Cake', 150, 6, 15, 1, 'chocolate_cake.jpg', 'Flour, Cocoa, Sugar, Eggs, Butter', 'FGNWHQBM', 'Sweet dessert', '2025-11-24 09:35:52', '2025-11-24 09:35:52'),
+(5, 'Caesar Salad', 200, 5, 22, 1, 'caesar_salad.jpg', 'Lettuce, Chicken, Caesar Dressing, Croutons', 'RT8HKU7Y', '', '2025-11-24 09:35:52', '2025-11-24 12:26:30'),
+(6, 'Chocolate Cake', 150, 6, 11, 1, 'chocolate_cake.jpg', 'Flour, Cocoa, Sugar, Eggs, Butter', 'FGNWHQBM', 'Sweet dessert', '2025-11-24 09:35:52', '2025-11-24 12:28:58'),
 (7, 'Coca Cola', 60, 7, 100, 1, 'coca_cola.jpg', 'Carbonated Water, Sugar, Flavor', 'DQLWUFFR', '', '2025-11-24 09:35:52', '2025-11-24 09:35:52'),
 (8, 'Grilled Salmon', 900, 8, 10, 1, 'grilled_salmon.jpg', 'Salmon, Lemon, Spices', 'UIAMFPEU', 'Premium dish', '2025-11-24 09:35:52', '2025-11-24 09:35:52'),
-(9, 'BBQ Chicken', 500, 9, 20, 1, 'bbq_chicken.jpg', 'Chicken, BBQ Sauce, Spices', 'H2JOG1PS', '', '2025-11-24 09:35:52', '2025-11-24 09:35:52'),
-(10, 'Pancakes', 120, 10, 30, 1, 'pancakes.jpg', 'Flour, Eggs, Milk, Sugar, Butter', '6VQDWZRE', 'Breakfast special', '2025-11-24 09:35:52', '2025-11-24 09:35:52'),
+(9, 'BBQ Chicken', 500, 9, 19, 1, 'bbq_chicken.jpg', 'Chicken, BBQ Sauce, Spices', 'H2JOG1PS', '', '2025-11-24 09:35:52', '2025-11-24 12:26:31'),
+(10, 'Pancakes', 120, 10, 28, 1, 'pancakes.jpg', 'Flour, Eggs, Milk, Sugar, Butter', '6VQDWZRE', 'Breakfast special', '2025-11-24 09:35:52', '2025-11-24 12:26:32'),
 (11, 'Veggie Burger', 220, 1, 40, 1, 'veggie_burger.jpg', 'Bun, Veg Patty, Lettuce, Tomato, Cheese', 'WITW6TON', '', '2025-11-24 09:35:52', '2025-11-24 09:35:52'),
 (12, 'Margherita Pizza', 700, 2, 25, 1, 'margherita_pizza.jpg', 'Dough, Tomato Sauce, Cheese, Basil', '8Q0PKCNP', '', '2025-11-24 09:35:52', '2025-11-24 09:35:52'),
 (13, 'Tuna Sandwich', 200, 3, 35, 1, 'tuna_sandwich.jpg', 'Bread, Tuna, Lettuce, Mayo', '5ZFCWTSB', '', '2025-11-24 09:35:52', '2025-11-24 09:35:52'),
@@ -347,6 +394,27 @@ INSERT INTO `food_categories` (`id`, `name`, `created_at`, `updated_at`) VALUES
 -- --------------------------------------------------------
 
 --
+-- Table structure for table `memberships`
+--
+
+CREATE TABLE `memberships` (
+  `id` bigint(20) UNSIGNED NOT NULL,
+  `name` varchar(255) NOT NULL,
+  `email` varchar(255) NOT NULL,
+  `phone` varchar(255) NOT NULL,
+  `membership_type` enum('Silver','Gold','Platinum') NOT NULL DEFAULT 'Silver',
+  `point` varchar(255) NOT NULL DEFAULT '0',
+  `start_date` date NOT NULL,
+  `expiry_date` date NOT NULL,
+  `is_active` tinyint(1) NOT NULL DEFAULT 1,
+  `remarks` text DEFAULT NULL,
+  `created_at` timestamp NULL DEFAULT NULL,
+  `updated_at` timestamp NULL DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+-- --------------------------------------------------------
+
+--
 -- Table structure for table `migrations`
 --
 
@@ -379,7 +447,8 @@ INSERT INTO `migrations` (`id`, `migration`, `batch`) VALUES
 (34, '2025_11_15_135414_create_expense_subcategories_table', 1),
 (35, '2025_11_15_135503_create_expenses_table', 1),
 (36, '2025_11_24_150051_create_bank_details_table', 1),
-(38, '2025_11_24_161140_create_bank_transection_details_table', 2);
+(38, '2025_11_24_161140_create_bank_transection_details_table', 2),
+(39, '2025_11_24_190900_create_memberships_table', 3);
 
 -- --------------------------------------------------------
 
@@ -406,6 +475,20 @@ CREATE TABLE `orders` (
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+--
+-- Dumping data for table `orders`
+--
+
+INSERT INTO `orders` (`id`, `date`, `user_id`, `reg`, `total`, `discount`, `vat`, `payable`, `pay`, `due`, `kitchen`, `paymentMethod`, `customerName`, `customerPhone`, `status`, `created_at`, `updated_at`) VALUES
+(1, '2025-11-24', 1, 2025112411, 1230.00, 14.00, 184.50, 1400.50, 1400.50, 0.00, 0, 1, '0', 0, 1, '2025-11-24 12:13:53', '2025-11-24 12:13:53'),
+(2, '2025-11-24', 1, 2025112412, 1580.00, 17.00, 237.00, 1800.00, 1800.00, 0.00, 0, 1, 'Samim Hossain', 1762164746, 1, '2025-11-24 12:15:31', '2025-11-24 12:15:31'),
+(3, '2025-11-24', 1, 2025112413, 430.00, 0.00, 0.00, 430.00, 400.00, 30.00, 0, 1, 'Samim Hossain', 1762164746, 0, '2025-11-24 12:17:13', '2025-11-24 12:17:13'),
+(4, '2025-11-24', 1, 2025112414, 550.00, 0.00, 0.00, 550.00, 500.00, 50.00, 0, 1, 'Samim Hossain', 1762164746, 0, '2025-11-24 12:17:33', '2025-11-24 12:17:33'),
+(5, '2025-11-24', 1, 2025112415, 1580.00, 500.00, 237.00, 1317.00, 1000.00, 317.00, 0, 1, 'Rakib Hossain', 1762164747, 0, '2025-11-24 12:26:24', '2025-11-24 12:26:24'),
+(6, '2025-11-24', 1, 2025112416, 2200.00, 0.00, 330.00, 2530.00, 500.00, 2030.00, 0, 1, 'Rakib Hossain', 1762164747, 0, '2025-11-24 12:26:51', '2025-11-24 12:26:51'),
+(7, '2025-11-24', 1, 2025112417, 1230.00, 0.00, 0.00, 1230.00, 200.00, 1030.00, 0, 1, 'Fahim Hossain', 1762164748, 0, '2025-11-24 12:28:52', '2025-11-24 12:28:52'),
+(8, '2025-11-24', 1, 2025112418, 580.00, 0.00, 0.00, 580.00, 80.00, 500.00, 0, 1, 'Samim Hossain', 1762164748, 0, '2025-11-24 12:29:08', '2025-11-24 12:29:08');
 
 -- --------------------------------------------------------
 
@@ -494,6 +577,43 @@ CREATE TABLE `stocks` (
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+--
+-- Dumping data for table `stocks`
+--
+
+INSERT INTO `stocks` (`id`, `reg`, `date`, `foodId`, `stockIn`, `stockOut`, `remark`, `status`, `created_at`, `updated_at`) VALUES
+(1, 2025112411, '2025-11-24', 1, 0, 1, NULL, 1, '2025-11-24 12:11:43', '2025-11-24 12:11:43'),
+(2, 2025112411, '2025-11-24', 3, 0, 1, NULL, 1, '2025-11-24 12:11:44', '2025-11-24 12:11:44'),
+(3, 2025112411, '2025-11-24', 2, 0, 1, NULL, 1, '2025-11-24 12:11:46', '2025-11-24 12:11:46'),
+(4, 2025112412, '2025-11-24', 1, 0, 1, NULL, 1, '2025-11-24 12:15:20', '2025-11-24 12:15:20'),
+(5, 2025112412, '2025-11-24', 3, 0, 1, NULL, 1, '2025-11-24 12:15:21', '2025-11-24 12:15:21'),
+(6, 2025112412, '2025-11-24', 2, 0, 1, NULL, 1, '2025-11-24 12:15:21', '2025-11-24 12:15:21'),
+(7, 2025112412, '2025-11-24', 6, 0, 1, NULL, 1, '2025-11-24 12:15:22', '2025-11-24 12:15:22'),
+(8, 2025112412, '2025-11-24', 5, 0, 1, NULL, 1, '2025-11-24 12:15:23', '2025-11-24 12:15:23'),
+(9, 2025112413, '2025-11-24', 1, 0, 1, NULL, 1, '2025-11-24 12:17:02', '2025-11-24 12:17:02'),
+(10, 2025112413, '2025-11-24', 3, 0, 1, NULL, 1, '2025-11-24 12:17:05', '2025-11-24 12:17:05'),
+(11, 2025112414, '2025-11-24', 1, 0, 1, NULL, 1, '2025-11-24 12:17:22', '2025-11-24 12:17:22'),
+(12, 2025112414, '2025-11-24', 3, 0, 1, NULL, 1, '2025-11-24 12:17:23', '2025-11-24 12:17:23'),
+(13, 2025112414, '2025-11-24', 10, 0, 1, NULL, 1, '2025-11-24 12:17:29', '2025-11-24 12:17:29'),
+(14, 2025112415, '2025-11-24', 1, 0, 1, NULL, 1, '2025-11-24 12:25:55', '2025-11-24 12:25:55'),
+(15, 2025112415, '2025-11-24', 3, 0, 1, NULL, 1, '2025-11-24 12:25:57', '2025-11-24 12:25:57'),
+(16, 2025112415, '2025-11-24', 2, 0, 1, NULL, 1, '2025-11-24 12:25:58', '2025-11-24 12:25:58'),
+(17, 2025112415, '2025-11-24', 6, 0, 1, NULL, 1, '2025-11-24 12:26:00', '2025-11-24 12:26:00'),
+(18, 2025112415, '2025-11-24', 5, 0, 1, NULL, 1, '2025-11-24 12:26:00', '2025-11-24 12:26:00'),
+(19, 2025112416, '2025-11-24', 1, 0, 1, NULL, 1, '2025-11-24 12:26:27', '2025-11-24 12:26:27'),
+(20, 2025112416, '2025-11-24', 3, 0, 1, NULL, 1, '2025-11-24 12:26:28', '2025-11-24 12:26:28'),
+(21, 2025112416, '2025-11-24', 2, 0, 1, NULL, 1, '2025-11-24 12:26:29', '2025-11-24 12:26:29'),
+(22, 2025112416, '2025-11-24', 6, 0, 1, NULL, 1, '2025-11-24 12:26:30', '2025-11-24 12:26:30'),
+(23, 2025112416, '2025-11-24', 5, 0, 1, NULL, 1, '2025-11-24 12:26:30', '2025-11-24 12:26:30'),
+(24, 2025112416, '2025-11-24', 9, 0, 1, NULL, 1, '2025-11-24 12:26:31', '2025-11-24 12:26:31'),
+(25, 2025112416, '2025-11-24', 10, 0, 1, NULL, 1, '2025-11-24 12:26:32', '2025-11-24 12:26:32'),
+(26, 2025112417, '2025-11-24', 1, 0, 1, NULL, 1, '2025-11-24 12:28:38', '2025-11-24 12:28:38'),
+(27, 2025112417, '2025-11-24', 3, 0, 1, NULL, 1, '2025-11-24 12:28:39', '2025-11-24 12:28:39'),
+(28, 2025112417, '2025-11-24', 2, 0, 1, NULL, 1, '2025-11-24 12:28:39', '2025-11-24 12:28:39'),
+(29, 2025112418, '2025-11-24', 1, 0, 1, NULL, 1, '2025-11-24 12:28:55', '2025-11-24 12:28:55'),
+(30, 2025112418, '2025-11-24', 3, 0, 1, NULL, 1, '2025-11-24 12:28:56', '2025-11-24 12:28:56'),
+(31, 2025112418, '2025-11-24', 6, 0, 1, NULL, 1, '2025-11-24 12:28:58', '2025-11-24 12:28:58');
 
 -- --------------------------------------------------------
 
@@ -603,6 +723,14 @@ ALTER TABLE `food_categories`
   ADD PRIMARY KEY (`id`);
 
 --
+-- Indexes for table `memberships`
+--
+ALTER TABLE `memberships`
+  ADD PRIMARY KEY (`id`),
+  ADD UNIQUE KEY `memberships_email_unique` (`email`),
+  ADD UNIQUE KEY `memberships_phone_unique` (`phone`);
+
+--
 -- Indexes for table `migrations`
 --
 ALTER TABLE `migrations`
@@ -683,7 +811,7 @@ ALTER TABLE `bank_transection_details`
 -- AUTO_INCREMENT for table `carts`
 --
 ALTER TABLE `carts`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=32;
 
 --
 -- AUTO_INCREMENT for table `companies`
@@ -701,19 +829,19 @@ ALTER TABLE `due_collections`
 -- AUTO_INCREMENT for table `expenses`
 --
 ALTER TABLE `expenses`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- AUTO_INCREMENT for table `expense_categories`
 --
 ALTER TABLE `expense_categories`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 
 --
 -- AUTO_INCREMENT for table `expense_subcategories`
 --
 ALTER TABLE `expense_subcategories`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=17;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=19;
 
 --
 -- AUTO_INCREMENT for table `failed_jobs`
@@ -734,16 +862,22 @@ ALTER TABLE `food_categories`
   MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
 
 --
+-- AUTO_INCREMENT for table `memberships`
+--
+ALTER TABLE `memberships`
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT;
+
+--
 -- AUTO_INCREMENT for table `migrations`
 --
 ALTER TABLE `migrations`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=39;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=40;
 
 --
 -- AUTO_INCREMENT for table `orders`
 --
 ALTER TABLE `orders`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
 
 --
 -- AUTO_INCREMENT for table `payment_methods`
@@ -761,7 +895,7 @@ ALTER TABLE `personal_access_tokens`
 -- AUTO_INCREMENT for table `stocks`
 --
 ALTER TABLE `stocks`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=32;
 
 --
 -- AUTO_INCREMENT for table `users`

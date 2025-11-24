@@ -8,7 +8,6 @@ function calculateAmount() {
 
     const confirmBtn = document.getElementById('confirmBtn');
     const result = document.getElementById('result');
-    const customerInfo = document.getElementById("customer-info");
 
     // Validation
     if (vatPercent < 0 || discount < 0 || pay < 0) {
@@ -37,19 +36,16 @@ function calculateAmount() {
         result.classList.remove("text-danger");
         result.classList.add("text-success");
         confirmBtn.disabled = false;
-        customerInfo.style.display = "none";
     } else if (balance < 0) {
         message = "Due: ৳" + Math.abs(balance).toFixed(2) + "/-";
         result.classList.remove("text-success");
         result.classList.add("text-danger");
         confirmBtn.disabled = false;
-        customerInfo.style.display = "block";
     } else {
         message = "Fully Paid: ৳0.00/-";
         result.classList.remove("text-danger");
         result.classList.add("text-success");
         confirmBtn.disabled = false;
-        customerInfo.style.display = "none";
     }
 
     result.innerText = message;

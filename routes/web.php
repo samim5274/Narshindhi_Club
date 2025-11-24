@@ -63,6 +63,9 @@ Route::group(['middleware' => ['admin']], function (){
     Route::get('/order-details', [OrderController::class, 'orderDetails'])->name('order-details-list');
     Route::post('/due-collection/{reg}', [OrderController::class, 'dueCollection']);
     Route::get('/due-details', [OrderController::class, 'dueDetails'])->name('due-list-view');
+    Route::get('/total-due-list', [OrderController::class, 'totalDueList'])->name('total-due-list');
+    Route::get('/total-member-due-list', [OrderController::class, 'totalMemberDueList'])->name('total-member-due-list');
+    Route::get('/phone-number-wise-due-data', [OrderController::class, 'phoneNumberWiseDueData'])->name('phone-number-wise-due-data');
 
     Route::get('/total-sale-report', [SaleReportController::class, 'index'])->name('date-wise-total-sale');
     Route::get('/filter-total-sale', [SaleReportController::class, 'filterSaleReport'])->name('filter-total-sale');

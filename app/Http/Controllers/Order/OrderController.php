@@ -60,14 +60,11 @@ class OrderController extends Controller
             $order->due = 0;
         } else {
             $order->pay = $received;
-            $order->due = $dueAmount;
-            $request->validate([
-                'txtCustomerName' => 'required',
-                'txtCustomerPhone' => 'required',
-            ]);
-            $order->customerName = $request->input('txtCustomerName', '');
-            $order->customerPhone = $request->input('txtCustomerPhone', '');
+            $order->due = $dueAmount;            
         }
+
+        $order->customerName = $request->input('txtCustomerName', 'Unknown');
+        $order->customerPhone = $request->input('txtCustomerPhone', '000-0000000');
         
         // Auto status set
         if ($dueAmount > 0) { // 1 Fully paid and 0 due
@@ -239,5 +236,45 @@ class OrderController extends Controller
         $company = Company::first();
         $data = Order::where('date', $date)->where('status', 0)->with('user')->get();
         return view('order.print.print-order-list', compact('data','company'));
+    }
+
+    public function totalDueList(){
+        $company = Company::first();
+        $orders = Order::where('status', 0)
+                ->orderBy('customerPhone')
+                ->orderBy('date', 'desc')
+                ->get()
+                ->groupBy('customerPhone');
+        return view('order.report.total-due-list', compact('orders','company'));
+    }
+
+    public function totalMemberDueList(){
+        $company = Company::first();
+        $customers = Order::where('status', 0)
+                ->select('customerPhone', 'customerName')
+                ->groupBy('customerPhone', 'customerName')
+                ->get();
+        $orders = Order::where('status', 0)
+                ->orderBy('date', 'desc')
+                ->get();
+        return view('order.report.total-member-due-list', compact('customers','company','orders'));
+    }
+
+    public function phoneNumberWiseDueData(Request $request){
+        $phone = $request->input('customer_id', ''); 
+
+        $company = Company::first();
+
+        $customers = Order::where('status', 0)
+                    ->select('customerPhone', 'customerName')
+                    ->groupBy('customerPhone', 'customerName')
+                    ->get();
+
+        $orders = Order::where('customerPhone', $phone)
+                    ->where('status', 0)
+                    ->orderBy('date', 'desc')
+                    ->get();
+
+        return view('order.report.total-member-due-list', compact('orders','company','customers'));
     }
 }

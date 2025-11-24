@@ -66,6 +66,8 @@
                         <li class="pc-item"><a class="pc-link" href="{{ route('date-wise-total-sale') }}">Total Sale</a></li>
                         <li class="pc-item"><a class="pc-link" href="{{ route('user-wise-total-sale') }}">User wise Sale</a></li>
                         <li class="pc-item"><a class="pc-link" href="{{ route('payment-wise-total-sale') }}">P.M wise Sale</a></li>
+                        <li class="pc-item"><a class="pc-link" href="{{ route('total-due-list') }}">Due List</a></li>
+                        <li class="pc-item"><a class="pc-link" href="{{ route('total-member-due-list') }}">Member Due List</a></li>
                         <!-- <li class="pc-item pc-hasmenu">
                             <a href="#" class="pc-link">Total Sale<span class="pc-arrow"><i data-feather="chevron-right"></i></span></a>
                             <ul class="pc-submenu">
