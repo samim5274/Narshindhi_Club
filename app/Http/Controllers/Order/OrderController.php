@@ -10,6 +10,7 @@ use App\Models\Order;
 use App\Models\Cart;
 use App\Models\Company;
 use App\Models\DueCollection;
+use App\Models\Membership;
 
 class OrderController extends Controller
 {
@@ -31,11 +32,11 @@ class OrderController extends Controller
             return redirect()->back()->with('error', 'Your cart is empty. Try again.');
         }        
 
-        $received = $request->input('txtPay', 0);
-        $total = $request->input('txtSubTotal', 0);
-        $discount = $request->input('txtDiscount', 0);
-        $vat = $request->input('txtVAT', 0);
-        $payMethod = $request->input('paymentMethods', 0);
+        $received   = $request->input('txtPay', 0);
+        $total      = $request->input('txtSubTotal', 0);
+        $discount   = $request->input('txtDiscount', 0);
+        $vat        = $request->input('txtVAT', 0);
+        $payMethod  = $request->input('paymentMethods', 0);
 
         $newVat = $total * $vat / 100;
         $payable = ($total - $discount) + $newVat;
@@ -45,15 +46,15 @@ class OrderController extends Controller
             return redirect()->back()->with('warning', 'You must be payment some amount. Unless you can not sale this product. Thanks');
         }
 
-        $order = new Order();
-        $order->date = Carbon::now()->format('Y-m-d');
-        $order->user_id = Auth::guard('admin')->user()->id;
-        $order->reg = $reg;
-        $order->total = $total;
-        $order->discount = $discount;
-        $order->vat = $newVat;
-        $order->payable = $payable;
-        $order->paymentMethod = $payMethod;
+        $order                  = new Order();
+        $order->date            = Carbon::now()->format('Y-m-d');
+        $order->user_id         = Auth::guard('admin')->user()->id;
+        $order->reg             = $reg;
+        $order->total           = $total;
+        $order->discount        = $discount;
+        $order->vat             = $newVat;
+        $order->payable         = $payable;
+        $order->paymentMethod   = $payMethod;
 
         if($received >= $payable) {
             $order->pay = $payable;
@@ -63,12 +64,25 @@ class OrderController extends Controller
             $order->due = $dueAmount;            
         }
 
-        $order->customerName = $request->input('txtCustomerName', 'Unknown');
-        $order->customerPhone = $request->input('txtCustomerPhone', '000-0000000');
-        
+        $customerName  = $request->input('txtCustomerName', 'Unknown');
+        $customerPhone = $request->input('txtCustomerPhone', '000-0000000');
+
         // Auto status set
         if ($dueAmount > 0) { // 1 Fully paid and 0 due
             $order->status = 0; // Due
+
+            $request->validate([
+                'txtCustomerName'   => 'required',
+                'txtCustomerPhone'  => 'required',
+            ]);
+
+            $membership = Membership::where('phone', $customerPhone)->first(); // check membershiop when payment due
+            if(empty($membership)){
+                return redirect()->back()->with('warning','Membership not found.');
+            }
+
+            $order->customerName    = $membership->name;
+            $order->customerPhone   = $membership->phone;
         } else {
             $order->status = 1; // Fully paid
         } 

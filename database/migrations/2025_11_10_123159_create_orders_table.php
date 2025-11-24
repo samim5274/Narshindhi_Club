@@ -25,7 +25,7 @@ return new class extends Migration
             $table->unsignedInteger('kitchen')->default(0);
             $table->Integer('paymentMethod')->constrained('payment_methods')->onDelete('restrict');
             $table->string('customerName')->default(0);
-            $table->Integer('customerPhone')->default(0);
+            $table->string('customerPhone')->default(0);
             $table->Integer('status')->default(0);
             $table->timestamps();
         });
