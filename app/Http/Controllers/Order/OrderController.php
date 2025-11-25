@@ -32,11 +32,11 @@ class OrderController extends Controller
             return redirect()->back()->with('error', 'Your cart is empty. Try again.');
         }        
 
-        $received   = $request->input('txtPay', 0);
-        $total      = $request->input('txtSubTotal', 0);
-        $discount   = $request->input('txtDiscount', 0);
-        $vat        = $request->input('txtVAT', 0);
-        $payMethod  = $request->input('paymentMethods', 0);
+        $received = $request->input('txtPay', 0);
+        $total = $request->input('txtSubTotal', 0);
+        $discount = $request->input('txtDiscount', 0);
+        $vat = $request->input('txtVAT', 0);
+        $payMethod = $request->input('paymentMethods', 0);
 
         $newVat = $total * $vat / 100;
         $payable = ($total - $discount) + $newVat;
@@ -46,15 +46,15 @@ class OrderController extends Controller
             return redirect()->back()->with('warning', 'You must be payment some amount. Unless you can not sale this product. Thanks');
         }
 
-        $order                  = new Order();
-        $order->date            = Carbon::now()->format('Y-m-d');
-        $order->user_id         = Auth::guard('admin')->user()->id;
-        $order->reg             = $reg;
-        $order->total           = $total;
-        $order->discount        = $discount;
-        $order->vat             = $newVat;
-        $order->payable         = $payable;
-        $order->paymentMethod   = $payMethod;
+        $order = new Order();
+        $order->date = Carbon::now()->format('Y-m-d');
+        $order->user_id = Auth::guard('admin')->user()->id;
+        $order->reg = $reg;
+        $order->total = $total;
+        $order->discount = $discount;
+        $order->vat = $newVat;
+        $order->payable = $payable;
+        $order->paymentMethod = $payMethod;
 
         if($received >= $payable) {
             $order->pay = $payable;
@@ -63,10 +63,7 @@ class OrderController extends Controller
             $order->pay = $received;
             $order->due = $dueAmount;            
         }
-
-        $customerName  = $request->input('txtCustomerName', 'Unknown');
-        $customerPhone = $request->input('txtCustomerPhone', '000-0000000');
-
+        
         // Auto status set
         if ($dueAmount > 0) { // 1 Fully paid and 0 due
             $order->status = 0; // Due
@@ -76,6 +73,8 @@ class OrderController extends Controller
                 'txtCustomerPhone'  => 'required',
             ]);
 
+            $customerPhone = $request->input('txtCustomerPhone', '');
+
             $membership = Membership::where('phone', $customerPhone)->first(); // check membershiop when payment due
             if(empty($membership)){
                 return redirect()->back()->with('warning','Membership not found.');
@@ -83,6 +82,7 @@ class OrderController extends Controller
 
             $order->customerName    = $membership->name;
             $order->customerPhone   = $membership->phone;
+
         } else {
             $order->status = 1; // Fully paid
         } 
@@ -264,10 +264,7 @@ class OrderController extends Controller
 
     public function totalMemberDueList(){
         $company = Company::first();
-        $customers = Order::where('status', 0)
-                ->select('customerPhone', 'customerName')
-                ->groupBy('customerPhone', 'customerName')
-                ->get();
+        $customers = Membership::where('is_active', 1)->get();
         $orders = Order::where('status', 0)
                 ->orderBy('date', 'desc')
                 ->get();
@@ -275,20 +272,15 @@ class OrderController extends Controller
     }
 
     public function phoneNumberWiseDueData(Request $request){
-        $phone = $request->input('customer_id', ''); 
-
+        $start  = $request->input('start_date', ''); 
+        $end    = $request->input('end_date', ''); 
+        $phone  = $request->input('customer_id', ''); 
+        
         $company = Company::first();
 
-        $customers = Order::where('status', 0)
-                    ->select('customerPhone', 'customerName')
-                    ->groupBy('customerPhone', 'customerName')
-                    ->get();
-
-        $orders = Order::where('customerPhone', $phone)
-                    ->where('status', 0)
-                    ->orderBy('date', 'desc')
-                    ->get();
-
+        $orders = Order::where('status', 0)->whereDate('date', [$start, $end])->where('customerPhone', $phone)->get();
+        dd($orders);
+        
         return view('order.report.total-member-due-list', compact('orders','company','customers'));
     }
 }

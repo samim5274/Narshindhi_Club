@@ -11,6 +11,7 @@ use Session;
 
 use App\Models\Admin;
 use App\Models\Company;
+use App\Models\Membership;
 
 class AdminController extends Controller
 {
@@ -190,5 +191,70 @@ class AdminController extends Controller
 
         $user->update();
         return redirect()->back()->with('success', 'User information updated successfully.');
+    }
+
+    public function membership(){
+        $company = Company::first();
+        $memberships = Membership::all();
+        return view('auth.make-membership', compact('company','memberships'));
+    }
+
+    public function SearchMember(Request $request) {
+        $output = '';
+        $search = $request->input('search', '');
+
+        $employees = Membership::where('name', 'like', '%' . $search . '%')
+                    ->orWhere('email', 'like', '%' . $search . '%')
+                    ->orWhere('phone', 'like', '%' . $search . '%')
+                    ->get();
+
+        if ($employees->count() > 0) {
+            foreach ($employees as $key => $val) {                
+                $status = $val->is_active == 1 
+                        ? '<span class="badge bg-success">Active</span>' 
+                        : '<span class="badge bg-danger">Inactive</span>';
+                $output .= '
+                    <tr>
+                        <td class="text-center">' . ($key + 1) . '</td>
+                        <td>' . $val->name . '</td>
+                        <td>' . $val->email . '</td>
+                        <td>' . $val->phone . '</td>
+                        <td>' . $val->membership_type . '</td>
+                        <td>' . $val->point . '</td>
+                        <td>' . $val->start_date . '</td>
+                        <td>' . $val->expiry_date . '</td> 
+                        <td class="text-center">' . $status . '</td> 
+                    </tr>';
+            }
+        } else {
+            $output = '<tr><td colspan="9" class="text-center text-danger">No member found.</td></tr>';
+        }
+
+        return response($output);
+    }
+
+    public function storeMembership(Request $request){
+        $request->validate([
+            'name' => 'required|string|max:255',
+            'email' => 'nullable|email|max:255',
+            'phone' => 'required|string|max:20',
+            'membership_type' => 'required|string|max:100',
+            'point' => 'nullable|integer|min:0',
+            'start_date' => 'required|date',
+            'expiry_date' => 'required|date|after_or_equal:start_date',
+        ]);
+
+        $membership = new Membership();
+        $membership->name = $request->input('name');
+        $membership->email = $request->input('email');
+        $membership->phone = $request->input('phone');
+        $membership->membership_type = $request->input('membership_type');
+        $membership->point = $request->input('point', 0);
+        $membership->start_date = $request->input('start_date');
+        $membership->expiry_date = $request->input('expiry_date');
+        $membership->is_active = 1; // default active
+        $membership->save();
+
+        return redirect()->back()->with('success', 'New membership created successfully!');
     }
 }

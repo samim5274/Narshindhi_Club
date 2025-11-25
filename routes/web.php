@@ -37,6 +37,9 @@ Route::group(['middleware' => ['admin']], function (){
     Route::get('/update-employee-status/{id}', [AdminController::class, 'updateStatus']);
     Route::get('/profile', [AdminController::class, 'profile'])->name('user-profile-view');
     Route::post('/edit-profile/{id}', [AdminController::class, 'editProfile']);
+    Route::get('/membership', [AdminController::class, 'membership'])->name('make-membership');
+    Route::get('/live-search-member', [AdminController::class, 'SearchMember']);
+    Route::post('/store-membership', [AdminController::class, 'storeMembership'])->name('store-membership');
 
     Route::get('/', [HomeController::class, 'index'])->name('dashboard');
     // ========================= Food Controller =========================

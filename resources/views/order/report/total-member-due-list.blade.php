@@ -87,9 +87,9 @@
                                 <div class="col-md-12">
                                     <select name="customer_id" id="customer_id" class="form-select" required>
                                         <option disabled selected>-- Select Customer --</option>
-                                        @foreach($customers as $customer)
-                                            <option value="{{ $customer->customerPhone }}">
-                                                {{ $customer->customerName }} - ({{ $customer->customerPhone }})
+                                        @foreach($customers as $val)
+                                            <option value="{{ $val->phone }}">
+                                                {{ $val->name }} - ({{ $val->phone }})
                                             </option>
                                         @endforeach
                                     </select>

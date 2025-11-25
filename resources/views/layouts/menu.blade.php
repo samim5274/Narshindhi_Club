@@ -148,6 +148,7 @@
                         <li class="pc-item"><a class="pc-link" href="#"><i class="fa-solid fa-table"></i> Table</a></li>
                         <li class="pc-item"><a class="pc-link" href="{{ url('/stock') }}"><i class="fa-solid fa-chart-gantt"></i> Stock</a></li>
                         <li class="pc-item"><a class="pc-link" href="{{ route('all-user') }}"><i class="fa-solid fa-circle-user"></i> Empolyee</a></li>                        
+                        <li class="pc-item"><a class="pc-link" href="{{ route('make-membership') }}"><i class="fa-solid fa-user-plus"></i> Make Membership</a></li>                        
                     </ul>
                 </li>
                 <li class="pc-item pc-caption">
