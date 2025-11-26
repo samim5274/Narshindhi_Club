@@ -146,7 +146,7 @@
                                             <td class="fw-bold text-secondary text-center">{{ $loop->iteration }}</td>
                                             <td class="text-muted text-center">{{ $val->date }}</td>
                                             <td class="fw-semibold text-dark">{{ $val->customerName }}</td>
-                                            <td class="fw-semibold text-dark text-center">0{{ $val->customerPhone }}</td>
+                                            <td class="fw-semibold text-dark text-center">{{ $val->customerPhone }}</td>
                                             <td class="text-muted text-center">ORD-{{ $val->reg }}</td>
                                             <td class="text-center"><span class="text-danger">-৳{{ $val->due }}/-</span></td>
                                         </tr>

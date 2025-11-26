@@ -277,9 +277,19 @@ class OrderController extends Controller
         $phone  = $request->input('customer_id', ''); 
         
         $company = Company::first();
+        $customers = Membership::where('is_active', 1)->where('phone', $phone)->first();
 
-        $orders = Order::where('status', 0)->whereDate('date', [$start, $end])->where('customerPhone', $phone)->get();
-        dd($orders);
+        $orders = Order::where('status', 0)->whereBetween('date', [$start, $end])->where('customerPhone', $phone)->get();
+        $total = $orders->sum('total');
+        $discount = $orders->sum('discount');
+        $vat = $orders->sum('vat');
+        $payable = $orders->sum('payable');
+        $pay = $orders->sum('pay');
+        $due = $orders->sum('due');
+
+        if($request->input('print')){
+            return view('order.report.print.print-total-member-due-list', compact('orders','company','customers', 'start', 'end', 'total', 'discount','vat','payable','pay','due'));
+        }
         
         return view('order.report.total-member-due-list', compact('orders','company','customers'));
     }
