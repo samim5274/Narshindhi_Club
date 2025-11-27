@@ -11,6 +11,7 @@ class DueCollection extends Model
 
     protected $fillable = [
         'reg',
+        'member_id',
         'total',
         'discount',
         'due',
@@ -23,5 +24,10 @@ class DueCollection extends Model
     public function user()
     {
         return $this->belongsTo(Admin::class, 'user_id');
+    }
+
+    public function member()
+    {
+        return $this->belongsTo(Admin::class, 'member_id');
     }
 }

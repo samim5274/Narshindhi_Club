@@ -28,4 +28,9 @@ class Membership extends Model
     {
         return $this->is_active && $this->expiry_date >= now()->format('Y-m-d');
     }
+
+    public function due()
+    {
+        return $this->hasMany(DueCollection::class, 'member_id');
+    }
 }

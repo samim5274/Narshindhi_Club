@@ -217,8 +217,11 @@ class OrderController extends Controller
 
         $remainingDue = $oldDue - ($pay + $discount);
 
+        $membership = Membership::where('phone', $order->customerPhone)->first();
+
         $data           = new DueCollection();
         $data->reg      = $order->reg;
+        $data->member_id= $membership->id;
         $data->total    = $order->total;
         $data->discount = $discount;
         $data->pay      = $pay;
@@ -277,7 +280,7 @@ class OrderController extends Controller
         $phone  = $request->input('customer_id', ''); 
         
         $company = Company::first();
-        $customers = Membership::where('is_active', 1)->where('phone', $phone)->first();
+        $customers = Membership::where('is_active', 1)->get();
 
         $orders = Order::where('status', 0)->whereBetween('date', [$start, $end])->where('customerPhone', $phone)->get();
         $total = $orders->sum('total');
@@ -292,5 +295,41 @@ class OrderController extends Controller
         }
         
         return view('order.report.total-member-due-list', compact('orders','company','customers'));
+    }
+
+    public function memberDueDetails($phone){
+        $company = Company::first();
+        $dueCollections = DueCollection::where('member_id', function($query) use ($phone) {
+                            $query->select('id')
+                                ->from('memberships')
+                                ->where('phone', $phone);
+                        })->orderByDesc('id')->get(); 
+        $dueDiscount = $dueCollections->sum('discount');
+        $duePay = $dueCollections->sum('pay');
+                        
+        $data = Order::where('customerPhone', $phone)->orderByDesc('id')->get();
+        $totalSum = $data->sum('total');
+        $discountSum = $data->sum('discount');
+        $payableSum = $data->sum('payable');
+        $paidSum = $data->sum('pay');
+        $dueSum = $data->sum('due');
+
+        $balance = $payableSum - ($paidSum + $duePay + $dueDiscount );
+
+        return view('order.member-due-details', 
+        compact(
+            'data',
+            'company',
+            'phone',
+            'totalSum',
+            'discountSum',
+            'payableSum', 
+            'paidSum', 
+            'dueSum', 
+            'dueCollections',
+            'dueDiscount',
+            'duePay',
+            'balance'
+        ));
     }
 }

@@ -94,7 +94,7 @@
                                             <td class="text-center">{{ $loop->iteration }}</td>
                                             <td class="text-center">{{ $val->date }}</td>
                                             <td>
-                                                <a href="{{ url('/order-item/'. $val->reg) }}" class="text-primary text-decoration-none">{{ $val->customerName == '0' ? 'N/A' : $val->customerName }}</a>
+                                                <a href="{{ url('/member-due-details/'. $val->customerPhone) }}" class="text-primary text-decoration-none">{{ $val->customerName == '0' ? 'N/A' : $val->customerName }}</a>
                                             </td>
                                             <td class="fw-bold">
                                                 <a href="{{ url('/order-item/'. $val->reg) }}" class="text-primary text-decoration-none">ORD-{{$val->reg}}</a>

@@ -14,6 +14,7 @@ return new class extends Migration
         Schema::create('due_collections', function (Blueprint $table) {
             $table->id();
             $table->string('reg')->nullable();
+            $table->foreignId('member_id')->constrained('memberships')->onDelete('restrict');
             $table->decimal('total', 12, 2)->nullable();
             $table->decimal('discount', 12, 2)->nullable();
             $table->decimal('due', 12, 2)->nullable();

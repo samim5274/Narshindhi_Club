@@ -100,7 +100,7 @@
                                         @forelse($memberships as $user)
                                             <tr>
                                                 <td class="text-center">{{ $loop->iteration }}</td>
-                                                <td>{{ $user->name }}</td>
+                                                <td><a href="{{ url('/member-due-details/'.$user->phone) }}">{{ $user->name }}</a></td>
                                                 <td>{{ $user->email }}</td>
                                                 <td>{{ $user->phone ?? '-' }}</td>
                                                 <td>{{ $user->membership_type }}</td>
