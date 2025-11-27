@@ -314,7 +314,7 @@ class OrderController extends Controller
         $paidSum = $data->sum('pay');
         $dueSum = $data->sum('due');
 
-        $balance = $payableSum - ($paidSum + $duePay + $dueDiscount );
+        $balance = $payableSum - ($paidSum + $duePay + $dueDiscount ); // dd($payableSum, $paidSum, $duePay, $dueDiscount, $balance);
 
         return view('order.member-due-details', 
         compact(
@@ -329,7 +329,44 @@ class OrderController extends Controller
             'dueCollections',
             'dueDiscount',
             'duePay',
-            'balance'
+            'balance',
         ));
     }
+
+    public function dueCollectMember(Request $request){
+        $request->validate([
+            'txtDiscount' => 'required',
+            'txtDue' => 'required',
+            'txtPay' => 'required',
+            'memberPhone' => 'required',
+        ]);
+
+        $phone = $request->input('memberPhone', '');
+        $discount = $request->input('txtDiscount', '');
+        $pay = $request->input('txtPay', 0);
+        $due = $request->input('txtDue', 0);
+
+        $membership = Membership::where('phone', $phone)->first();
+        if(!$membership){
+            return redirect()->back()->with('error', 'Membership not found.');
+        }
+
+        // Fetch all orders with due for this member
+        $orders = Order::where('customerPhone', $phone)->where('due', '>', 0)->orderBy('date')->get();
+
+        $totalDue = $orders->sum('due');
+
+        DueCollection::create([
+            'member_id'     => Membership::where('phone', $phone)->value('id'),
+            'total'         => $totalDue,       
+            'discount'      => $discount,       
+            'due'           => $orders->sum('due'),
+            'pay'           => $pay - $discount,   
+            'payment_date'  => Carbon::now()->format('Y-m-d'),
+            'user_id'       => Auth::guard('admin')->user()->id,
+            'note'          => 'Due collection for member phone: ' . $phone,
+        ]);
+
+        return redirect()->back()->with('success', 'Due payment collected successfully.');
+    }   
 }

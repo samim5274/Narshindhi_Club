@@ -104,14 +104,13 @@
                                                     <span class="badge rounded-pill bg-success fw-normal px-2 py-1">Paid</span>
                                                 @else
                                                     <span class="badge rounded-pill bg-danger fw-normal px-2 py-1" 
-                                                        data-bs-toggle="modal" data-bs-target="#due{{$val->id}}" 
                                                         style="cursor: pointer;">Due</span>
                                                 @endif
                                             </td>
                                             <td class="text-center">
-                                                <button class="btn btn-sm btn-outline-primary me-2" data-bs-toggle="modal" data-bs-target="#due{{$val->id}}"  style="cursor: pointer;">
+                                                <!-- <button class="btn btn-sm btn-outline-primary me-2" data-bs-toggle="modal" data-bs-target="#due{{$val->id}}"  style="cursor: pointer;">
                                                     <i class="fa-solid fa-hand-holding-dollar"></i>
-                                                </button>                                                
+                                                </button>                                                 -->
                                                 
                                                 <!-- <a href="{{ url('/edit/cart/'.$val->reg) }}" class="btn btn-sm btn-outline-primary me-2" title="Share or View Details">
                                                     <i class="fa-solid fa-pen-to-square"></i>

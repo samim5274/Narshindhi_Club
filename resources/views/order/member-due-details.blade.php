@@ -70,7 +70,7 @@
                     <div class="card shadow-sm mb-4">
                         <div class="card-he<div class="card shadow-lg mb-4">
                             <div class="card-header bg-gradient-primary text-black fw-bold text-center fs-5">
-                                Total Summary
+                                Total Summary - {{ $data[0]->customerName ?? 'N/A' }}
                             </div>
                             <div class="card-body">
                                 <div class="row g-3 text-center">
@@ -98,7 +98,7 @@
                                         <div class="p-3 rounded border bg-light h-100 d-flex flex-column justify-content-center align-items-center">
                                             <i class="fa-solid fa-money-bill-wave fs-3 text-warning mb-2"></i>
                                             <h6 class="fw-bold mb-1">Payable</h6>
-                                            <p class="fs-5 mb-0">৳{{ $payableSum }}/-</p>
+                                            <p class="fs-5 mb-0">৳{{ $payableSum - $dueDiscount }}/-</p>
                                         </div>
                                     </div>
 
@@ -107,7 +107,7 @@
                                         <div class="p-3 rounded border bg-light h-100 d-flex flex-column justify-content-center align-items-center">
                                             <i class="fa-solid fa-hand-holding-dollar fs-3 text-info mb-2"></i>
                                             <h6 class="fw-bold mb-1">Paid</h6>
-                                            <p class="fs-5 mb-0">৳{{ $paidSum }}/-</p>
+                                            <p class="fs-5 mb-0">৳{{ $paidSum + $duePay }}/-</p>
                                         </div>
                                     </div>
 
@@ -121,7 +121,7 @@
                                     </div>
 
                                     <!-- Balance -->
-                                    <div class="col-md-2 col-6">
+                                    <div class="col-md-2 col-6"  data-bs-toggle="modal" data-bs-target="#due">
                                         <div class="p-3 rounded h-100 d-flex flex-column justify-content-center align-items-center bg-gradient-warning text-dark shadow-sm">
                                             <i class="fa-solid fa-wallet fs-3 text-success mb-2"></i>
                                             <h6 class="fw-bold mb-1">Balance</h6>
@@ -139,57 +139,7 @@
                 <div class="col-lg-12 col-md-6">                    
                     <div class="row g-3">
                         <div class="container mt-4">
-                            <div class="d-flex justify-content-between align-items-center mb-3">
-                                <h5>{{ $data[0]->customerName ?? 'N/A' }} - Due Details</h5>
-                                <h5 class="m-0 text-primary">
-                                    <!-- <a href="{{ route('print-total-daily-due-list') }}" target="_blank"><i class="fa-solid fa-print"></i> Print </a> -->
-                                </h5>
-                            </div>
-                            <div class="table-responsive">
-                                <table class="table table-sm table-bordered table-hover" id="printableTable">
-                                    <thead class="table-primary sticky-top">
-                                        <tr>
-                                            <th class="text-center" style="width: 5%;">#</th>
-                                            <th class="text-center" style="width: 10%;">Date</th>
-                                            <th style="width: 10%;">Order ID</th>
-                                            <th class="text-center" style="width: 8%;">Total</th>
-                                            <th class="text-center" style="width: 8%;">Discount</th>
-                                            <th class="text-center" style="width: 10%;">Payable</th>
-                                            <th class="text-center" style="width: 8%;">Paid</th>
-                                            <th class="text-center" style="width: 8%;">Due</th>
-                                        </tr>
-                                    </thead>
-
-                                    <tbody>
-                                        @foreach($data as $key => $val)
-                                        <tr>
-                                            <td class="text-center">{{ $loop->iteration }}</td>
-                                            <td class="text-center">{{ $val->date }}</td>
-                                            <td class="fw-bold">
-                                                <a href="{{ url('/order-item/'. $val->reg) }}" 
-                                                class="text-primary text-decoration-none">
-                                                #ORD-{{ $val->reg }}
-                                                </a>
-                                            </td>
-                                            <td class="text-center">৳{{ $val->total }}/-</td>
-                                            <td class="text-center">৳{{ $val->discount }}/-</td>
-                                            <td class="text-center">৳{{ $val->payable }}/-</td>
-                                            <td class="text-center">৳{{ $val->pay }}/-</td>
-                                            <td class="text-center">৳{{ $val->due }}/-</td>
-                                        </tr>
-                                        @endforeach
-                                    </tbody>
-                                    <tfoot class="table-light fw-bold">
-                                        <tr>
-                                            <td colspan="3" class="text-end">Total:</td>
-                                            <td class="text-center">৳{{ $totalSum }}/-</td>
-                                            <td class="text-center">৳{{ $discountSum }}/-</td>
-                                            <td class="text-center">৳{{ $payableSum }}/-</td>
-                                            <td class="text-center">৳{{ $paidSum }}/-</td>
-                                            <td class="text-center">৳{{ $dueSum }}/-</td>
-                                        </tr>
-                                    </tfoot>
-                                </table>
+                            <div class="table-responsive">                                
                             
                                 <div class="d-flex justify-content-between align-items-center mb-3">
                                     <h5>{{ $data[0]->customerName ?? 'N/A' }} - Payment Details</h5>
@@ -236,6 +186,58 @@
         </div>
     </div>
 
+    <div class="modal fade" id="due" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <form action="{{ url('/due-collect-member') }}" method="POST">
+                    @csrf
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="exampleModalLabel">{{ $data[0]->customerName ?? 'N/A' }}</h5>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body">
+                        <div class="form-group row">
+                            <label for="num1" class="col-sm-3 col-form-label">Total Amount:</label>
+                            <div class="col-sm-9">
+                                <!-- Hidden total input -->
+                                <input type="text" class="form-control" id="num1" name="txtDue" hidden readonly value="{{ $balance }}">
+                                <input type="text" class="form-control" name="memberPhone" hidden readonly value="{{ $data[0]->customerPhone ?? 'N/A' }}">
+                                <!-- Display total as styled text -->
+                                <h1 class="display-4 text-danger">৳{{ $balance }}/-</h1>
+                            </div>
+                        </div>
+
+                        <div class="form-group row">
+                            <label for="num3" class="col-sm-3 col-form-label">Discount:</label>
+                            <div class="col-sm-9">
+                                <input type="number" class="form-control" id="num3" name="txtDiscount" value="0" placeholder="Discount" onkeyup="calculateAmount()" onchange="calculateAmount()">
+                            </div>
+                        </div>
+
+                        <div class="form-group row">
+                            <label for="num2" class="col-sm-3 col-form-label">Pay:</label>
+                            <div class="col-sm-9">
+                                <input type="number" class="form-control" id="num2" name="txtPay" placeholder="Pay" onkeyup="calculateAmount()" onchange="calculateAmount()">
+                            </div>
+                        </div>
+
+                        <div class="form-group row">
+                            <label for="num2" class="col-sm-3 col-form-label"></label>
+                            <div class="col-sm-9">
+                                <p id="result" class="display-6 text-danger">Amount (৳): 00/-</p>
+                            </div>
+                        </div>
+
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                        <button type="submit" class="btn btn-primary" id="btnSave" onclick="return confirm('Are you sure you want to collect due?')">Save</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+
     <!-- Footer -->
     @include('layouts.footer')
 
@@ -247,7 +249,7 @@
     <script src="{{ asset('assets/js/fonts/custom-font.js') }}"></script>
     <script src="{{ asset('assets/js/pcoded.js') }}"></script>
     <script src="{{ asset('assets/js/plugins/feather.min.js') }}"></script>
-    <script src="{{ asset('./js/due.js') }}"></script>
+    <script src="{{ asset('./js/due2.js') }}"></script>
     
 </body>
 </html>

@@ -70,6 +70,7 @@ Route::group(['middleware' => ['admin']], function (){
     Route::get('/total-member-due-list', [OrderController::class, 'totalMemberDueList'])->name('total-member-due-list');
     Route::get('/phone-number-wise-due-data', [OrderController::class, 'phoneNumberWiseDueData'])->name('phone-number-wise-due-data');
     Route::get('/member-due-details/{phone}', [OrderController::class, 'memberDueDetails'])->name('member-due-details');
+    Route::post('/due-collect-member', [OrderController::class, 'dueCollectMember'])->name('due-collect-member');
 
     Route::get('/total-sale-report', [SaleReportController::class, 'index'])->name('date-wise-total-sale');
     Route::get('/filter-total-sale', [SaleReportController::class, 'filterSaleReport'])->name('filter-total-sale');

@@ -92,7 +92,7 @@
                                             <!-- Group Header -->
                                             <tr class="table-info fw-bold">
                                                 <td colspan="7">
-                                                    Customer Phone: 0{{ $phone }}
+                                                    Customer Phone: {{ $phone }}
                                                     <span class="float-end">Total Orders: {{ $orderGroup->count() }}</span>
                                                 </td>
                                             </tr>
