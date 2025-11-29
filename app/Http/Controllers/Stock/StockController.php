@@ -37,6 +37,9 @@ class StockController extends Controller
                             ? substr($val->ingredients, 0, 40) . '...' 
                             : $val->ingredients;
 
+            // Generate unique modal ID                
+            $modalId = "stock".$val->id;
+
             $output .= '
                 <tr>
                     <td>'.($key+1).'</td>
@@ -74,12 +77,45 @@ class StockController extends Controller
 
                     <!-- Action -->
                     <td>
-                        <a href="'.$link.'"
-                        class="btn btn-sm btn-outline-primary">
+                        <button class="btn btn-sm btn-outline-primary" data-bs-toggle="modal" data-bs-target="#'.$modalId.'">
                             <i class="fa-solid fa-pen-to-square"></i> View
-                        </a>
+                        </button>
                     </td>
                 </tr>
+
+                <!-- Modal -->
+                <div class="modal fade" id="'.$modalId.'" tabindex="-1" aria-labelledby="exampleModalLabel'.$val->id.'" aria-hidden="true">
+                    <div class="modal-dialog">
+                        <div class="modal-content">
+                            <form action="'.url('/insert/stock').'" method="POST">
+                                '.csrf_field().'
+                                <div class="modal-header">
+                                    <h5 class="modal-title" id="exampleModalLabel'.$val->id.'">Stock - <small>'.$val->sku.'</small></h5>
+                                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                </div>
+                                <div class="modal-body">
+                                    <div class="form-group row">
+                                        <label class="col-sm-3 col-form-label"></label>
+                                        <div class="">                                
+                                            <h1 class="display-4 text-primary">'.$val->name.'</h1>
+                                        </div>
+                                    </div>
+                                    <div class="form-group row">
+                                        <label for="num2'.$val->id.'" class="col-sm-3 col-form-label">Pay:</label>
+                                        <div class="col-sm-9">
+                                            <input type="number" class="form-control" name="txtStock" placeholder="Stock" required min="1">
+                                            <input type="hidden" value="'.$val->id.'" name="txtFoodId" readonly>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="modal-footer">
+                                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                                    <button type="submit" class="btn btn-primary" onclick="return confirm(\'Are you sure you want '.$val->name.' insert stock?\')">Save</button>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
             ';
         }
 
@@ -113,6 +149,7 @@ class StockController extends Controller
         $data->foodId = $request->txtFoodId;
         $data->stockIn = $request->txtStock;
         $data->remark = "Stock In";
+        $data->status = 3; // 1 sale, 2 return, 3 stock in and 4 stock out
         $data->save();
         $food->update();
         return redirect()->back()->with('success', 'Product stock inserted successfully.');

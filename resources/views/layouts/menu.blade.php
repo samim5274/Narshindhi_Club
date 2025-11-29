@@ -107,9 +107,7 @@
                     <a href="#" class="pc-link"><span class="pc-micon"><i class="fa-solid fa-comments-dollar"></i></span><span class="pc-mtext">Accounts</span><span class="pc-arrow"><i data-feather="chevron-right"></i></span></a>
                     <ul class="pc-submenu">
                         <li class="pc-item"><a class="pc-link" href="{{ route('daily-expenses') }}"><i class="fa-solid fa-sack-dollar"></i> Daily Expenses</a></li>
-                        <li class="pc-item"><a class="pc-link" href="{{ route('expenses-setting-view') }}"><i class="fa-solid fa-filter-circle-dollar"></i> Setting</a></li><hr>
-                        <li class="pc-item"><a class="pc-link" href="{{ route('extra-income') }}"><i class="fa-solid fa-money-bill-trend-up"></i> Extra Income</a></li>
-                        <li class="pc-item"><a class="pc-link" href="{{ route('income-setting-view') }}"><i class="fa-solid fa-filter-circle-dollar"></i> Setting</a></li><hr>
+                        <li class="pc-item"><a class="pc-link" href="{{ route('expenses-setting-view') }}"><i class="fa-solid fa-filter-circle-dollar"></i> Setting</a></li>
                         <li class="pc-item pc-hasmenu">
                             <a href="#" class="pc-link"><i class="fa-solid fa-money-check-dollar"></i> Account Report<span class="pc-arrow"><i data-feather="chevron-right"></i></span></a>
                             <ul class="pc-submenu">
@@ -119,6 +117,20 @@
                                 <li class="pc-item"><a class="pc-link" href="#"><i class="fa-solid fa-wallet"></i> Sub-Category</a></li>
                             </ul>
                         </li>
+                        <hr>
+
+                        <li class="pc-item"><a class="pc-link" href="{{ route('extra-income') }}"><i class="fa-solid fa-money-bill-trend-up"></i> Extra Income</a></li>
+                        <li class="pc-item"><a class="pc-link" href="{{ route('income-setting-view') }}"><i class="fa-solid fa-filter-circle-dollar"></i> Setting</a></li>
+                        <li class="pc-item pc-hasmenu">
+                            <a href="#" class="pc-link"><i class="fa-solid fa-money-check-dollar"></i> Account Report<span class="pc-arrow"><i data-feather="chevron-right"></i></span></a>
+                            <ul class="pc-submenu">
+                                <li class="pc-item"><a class="pc-link" href="#"><i class="fa-solid fa-money-bill-1-wave"></i> Total Income</a></li>
+                                <li class="pc-item"><a class="pc-link" href="#"><i class="fa-solid fa-money-bill-trend-up"></i> Date Income</a></li>
+                                <li class="pc-item"><a class="pc-link" href="#"><i class="fa-solid fa-yen-sign"></i> Category</a></li>
+                                <li class="pc-item"><a class="pc-link" href="#"><i class="fa-solid fa-wallet"></i> Sub-Category</a></li>
+                            </ul>
+                        </li>
+                        <hr>
                     </ul>
                 </li>
                 <li class="pc-item pc-hasmenu">
@@ -136,6 +148,19 @@
                                 <li class="pc-item"><a class="pc-link" href="{{ route('total-transection') }}"><i class="fa-solid fa-yen-sign"></i> Total Transection</a></li>
                             </ul>
                         </li>
+                    </ul>
+                </li>
+
+                <li class="pc-item pc-caption">
+                    <label>Purchase</label>
+                    <i class="fa-solid fa-bag-shopping"></i>
+                </li>
+                <li class="pc-item pc-hasmenu">
+                    <a href="#" class="pc-link"><span class="pc-micon"><i class="fa-solid fa-bag-shopping"></i></span><span class="pc-mtext">Purchase</span><span class="pc-arrow"><i data-feather="chevron-right"></i></span></a>
+                    <ul class="pc-submenu">
+                        <li class="pc-item"><a class="pc-link" href="{{ route('purchase-view') }}"><i class="fa-solid fa-basket-shopping"></i> Purchases</a></li>                       
+                        <li class="pc-item"><a class="pc-link" href="{{ route('purchase-stock-in-view') }}"><i class="fa-solid fa-arrow-trend-up"></i> Stock In</a></li>                       
+                        <li class="pc-item"><a class="pc-link" href="{{ route('purchase-stock-out-view') }}"><i class="fa-solid fa-arrow-trend-down"></i> Stock Out</a></li>                       
                     </ul>
                 </li>
                 

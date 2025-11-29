@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost
--- Generation Time: Nov 29, 2025 at 06:28 AM
+-- Generation Time: Nov 29, 2025 at 10:08 AM
 -- Server version: 10.4.32-MariaDB
 -- PHP Version: 8.2.12
 
@@ -200,6 +200,13 @@ CREATE TABLE `expenses` (
   `updated_at` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
+--
+-- Dumping data for table `expenses`
+--
+
+INSERT INTO `expenses` (`id`, `category_id`, `subcategory_id`, `user_id`, `title`, `description`, `amount`, `expense_date`, `created_at`, `updated_at`) VALUES
+(2, 2, 5, 1, 'Lunch', 'N/A', 500.00, '2025-11-29', '2025-11-29 07:56:16', '2025-11-29 07:56:16');
+
 -- --------------------------------------------------------
 
 --
@@ -304,12 +311,12 @@ CREATE TABLE `food` (
 --
 
 INSERT INTO `food` (`id`, `name`, `price`, `category_id`, `stock`, `status`, `image`, `ingredients`, `sku`, `remark`, `created_at`, `updated_at`) VALUES
-(1, 'Cheese Burger', 250, 1, 43, 1, 'cheese_burger.jpg', 'Bun, Cheese, Patty, Lettuce, Tomato', 'TQMKDYSW', 'Best seller', '2025-11-27 10:13:22', '2025-11-27 11:50:08'),
-(2, 'Pepperoni Pizza', 800, 2, 21, 1, 'pepperoni_pizza.jpg', 'Dough, Cheese, Pepperoni, Tomato Sauce', 'AG5GFMGB', 'Spicy and hot', '2025-11-27 10:13:22', '2025-11-27 11:50:09'),
+(1, 'Cheese Burger', 250, 1, 44, 1, 'cheese_burger.jpg', 'Bun, Cheese, Patty, Lettuce, Tomato', 'TQMKDYSW', 'Stock inserted date of 2025-11-29', '2025-11-27 10:13:22', '2025-11-29 05:46:18'),
+(2, 'Pepperoni Pizza', 800, 2, 23, 1, 'pepperoni_pizza.jpg', 'Dough, Cheese, Pepperoni, Tomato Sauce', 'AG5GFMGB', 'Stock inserted date of 2025-11-29', '2025-11-27 10:13:22', '2025-11-29 05:47:55'),
 (3, 'Chicken Sandwich', 180, 3, 32, 1, 'chicken_sandwich.jpg', 'Bread, Chicken, Lettuce, Mayo', 'L9WNTDAV', '', '2025-11-27 10:13:22', '2025-11-27 11:51:57'),
 (4, 'Spaghetti Bolognese', 350, 4, 17, 1, 'spaghetti.jpg', 'Spaghetti, Tomato Sauce, Beef', '1CZPXFLI', '', '2025-11-27 10:13:22', '2025-11-27 11:51:58'),
 (5, 'Caesar Salad', 200, 5, 25, 1, 'caesar_salad.jpg', 'Lettuce, Chicken, Caesar Dressing, Croutons', 'OLSZCOTD', '', '2025-11-27 10:13:22', '2025-11-27 10:13:22'),
-(6, 'Chocolate Cake', 150, 6, 14, 1, 'chocolate_cake.jpg', 'Flour, Cocoa, Sugar, Eggs, Butter', 'JUYPBHXL', 'Sweet dessert', '2025-11-27 10:13:22', '2025-11-27 11:42:56'),
+(6, 'Chocolate Cake', 150, 6, 20, 1, 'chocolate_cake.jpg', 'Flour, Cocoa, Sugar, Eggs, Butter', 'JUYPBHXL', 'Stock inserted date of 2025-11-29', '2025-11-27 10:13:22', '2025-11-29 05:31:16'),
 (7, 'Coca Cola', 60, 7, 100, 1, 'coca_cola.jpg', 'Carbonated Water, Sugar, Flavor', 'A1ABU3GH', '', '2025-11-27 10:13:22', '2025-11-27 10:13:22'),
 (8, 'Grilled Salmon', 900, 8, 10, 1, 'grilled_salmon.jpg', 'Salmon, Lemon, Spices', 'XCGKATMT', 'Premium dish', '2025-11-27 10:13:22', '2025-11-27 10:13:22'),
 (9, 'BBQ Chicken', 500, 9, 20, 1, 'bbq_chicken.jpg', 'Chicken, BBQ Sauce, Spices', 'F48YPFHZ', '', '2025-11-27 10:13:22', '2025-11-27 10:13:22'),
@@ -507,7 +514,9 @@ INSERT INTO `migrations` (`id`, `migration`, `batch`) VALUES
 (21, '2025_11_29_103945_create_incomes_table', 2),
 (31, '2025_11_29_104608_create_income_categories_table', 3),
 (32, '2025_11_29_104617_create_income_sub_categories_table', 3),
-(33, '2025_11_29_104618_create_incomes_table', 3);
+(33, '2025_11_29_104618_create_incomes_table', 3),
+(36, '2025_11_29_122202_create_products_table', 4),
+(37, '2025_11_29_134305_create_product_stock_details_table', 5);
 
 -- --------------------------------------------------------
 
@@ -616,6 +625,93 @@ CREATE TABLE `personal_access_tokens` (
 -- --------------------------------------------------------
 
 --
+-- Table structure for table `products`
+--
+
+CREATE TABLE `products` (
+  `id` bigint(20) UNSIGNED NOT NULL,
+  `name` varchar(255) NOT NULL,
+  `purchase_price` decimal(10,2) NOT NULL,
+  `total_price` decimal(12,2) NOT NULL,
+  `stock` int(11) NOT NULL DEFAULT 0,
+  `remark` varchar(255) NOT NULL DEFAULT 'N/A',
+  `created_at` timestamp NULL DEFAULT NULL,
+  `updated_at` timestamp NULL DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+--
+-- Dumping data for table `products`
+--
+
+INSERT INTO `products` (`id`, `name`, `purchase_price`, `total_price`, `stock`, `remark`, `created_at`, `updated_at`) VALUES
+(1, 'Fresh Atta', 220.00, 300.00, 5, 'Daily household atta', '2025-11-29 07:20:10', '2025-11-29 09:07:18'),
+(2, 'Rupchanda Soybean Oil', 150.00, 185.00, 0, 'Premium soybean oil', '2025-11-29 07:20:10', '2025-11-29 09:07:11'),
+(3, 'ACI Pure Salt', 25.00, 35.00, 70, 'Refined iodized salt', '2025-11-29 07:20:10', '2025-11-29 08:08:56'),
+(4, 'Teer Sugar ', 85.00, 110.00, 50, 'Best quality sugar', '2025-11-29 07:20:10', '2025-11-29 07:52:33'),
+(5, 'Miniket Rice', 360.00, 450.00, 50, 'Popular miniket rice', '2025-11-29 07:20:10', '2025-11-29 07:52:52'),
+(6, 'Moshari ', 16.00, 25.00, 50, 'Daily essential mosquito coil', '2025-11-29 07:20:10', '2025-11-29 07:52:56'),
+(7, 'Dettol Soap (100g)', 50.00, 70.00, 42, 'Protection antibacterial soap', '2025-11-29 07:20:10', '2025-11-29 07:52:59'),
+(8, 'Horlicks Family Pack', 440.00, 550.00, 520, 'Popular health drink', '2025-11-29 07:20:10', '2025-11-29 07:53:03'),
+(9, 'Fresh Milk Powder', 240.00, 310.00, 74, 'Daily milk powder', '2025-11-29 07:20:10', '2025-11-29 07:53:07'),
+(10, 'Lifebuoy Handwash', 65.00, 85.00, 5, 'Daily hygiene product', '2025-11-29 07:20:10', '2025-11-29 09:07:40'),
+(11, 'Savlon Antiseptic', 85.00, 120.00, 42, 'For first aid', '2025-11-29 07:20:10', '2025-11-29 07:53:17'),
+(12, 'Mug Dal ', 115.00, 140.00, 32, 'Daily cooking dal', '2025-11-29 07:20:10', '2025-11-29 07:53:23'),
+(13, 'Potato ', 24.00, 35.00, 10, 'Daily vegetable', '2025-11-29 07:20:10', '2025-11-29 09:07:45'),
+(14, 'Onion ', 70.00, 90.00, 0, 'Essential kitchen item', '2025-11-29 07:20:10', '2025-11-29 08:51:15'),
+(15, 'Egg', 30.00, 300.00, 30, 'Essential kitchen', '2025-11-29 07:25:50', '2025-11-29 07:53:31');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `product_stock_details`
+--
+
+CREATE TABLE `product_stock_details` (
+  `id` bigint(20) UNSIGNED NOT NULL,
+  `date` date NOT NULL,
+  `user_id` bigint(20) UNSIGNED NOT NULL,
+  `product_id` bigint(20) UNSIGNED NOT NULL,
+  `stockIn` int(11) NOT NULL DEFAULT 0,
+  `stockOut` int(11) NOT NULL DEFAULT 0,
+  `remark` varchar(255) DEFAULT NULL,
+  `created_at` timestamp NULL DEFAULT NULL,
+  `updated_at` timestamp NULL DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+--
+-- Dumping data for table `product_stock_details`
+--
+
+INSERT INTO `product_stock_details` (`id`, `date`, `user_id`, `product_id`, `stockIn`, `stockOut`, `remark`, `created_at`, `updated_at`) VALUES
+(1, '2025-11-29', 1, 4, 50, 0, 'Stock In Added', '2025-11-29 07:52:33', '2025-11-29 07:52:33'),
+(2, '2025-11-29', 1, 5, 50, 0, 'Stock In Added', '2025-11-29 07:52:52', '2025-11-29 07:52:52'),
+(3, '2025-11-29', 1, 6, 50, 0, 'Stock In Added', '2025-11-29 07:52:56', '2025-11-29 07:52:56'),
+(4, '2025-11-29', 1, 7, 42, 0, 'Stock In Added', '2025-11-29 07:52:59', '2025-11-29 07:52:59'),
+(5, '2025-11-29', 1, 8, 520, 0, 'Stock In Added', '2025-11-29 07:53:03', '2025-11-29 07:53:03'),
+(6, '2025-11-29', 1, 9, 74, 0, 'Stock In Added', '2025-11-29 07:53:07', '2025-11-29 07:53:07'),
+(7, '2025-11-29', 1, 10, 25, 0, 'Stock In Added', '2025-11-29 07:53:12', '2025-11-29 07:53:12'),
+(8, '2025-11-29', 1, 11, 42, 0, 'Stock In Added', '2025-11-29 07:53:17', '2025-11-29 07:53:17'),
+(9, '2025-11-29', 1, 13, 25, 0, 'Stock In Added', '2025-11-29 07:53:20', '2025-11-29 07:53:20'),
+(10, '2025-11-29', 1, 12, 32, 0, 'Stock In Added', '2025-11-29 07:53:23', '2025-11-29 07:53:23'),
+(11, '2025-11-29', 1, 14, 12, 0, 'Stock In Added', '2025-11-29 07:53:26', '2025-11-29 07:53:26'),
+(12, '2025-11-29', 1, 15, 30, 0, 'Stock In Added', '2025-11-29 07:53:31', '2025-11-29 07:53:31'),
+(13, '2025-11-29', 1, 2, 1, 0, 'Stock In Added', '2025-11-29 07:58:38', '2025-11-29 07:58:38'),
+(14, '2025-11-29', 1, 14, 0, 10, 'Stock Out Added', '2025-11-29 08:01:48', '2025-11-29 08:01:48'),
+(15, '2025-11-29', 1, 3, 20, 0, 'Stock In Added', '2025-11-29 08:08:56', '2025-11-29 08:08:56'),
+(16, '2025-11-29', 1, 2, 0, 5, 'Stock Out Added', '2025-11-29 08:50:03', '2025-11-29 08:50:03'),
+(17, '2025-11-29', 1, 14, 10, 0, 'Stock In Added', '2025-11-29 08:50:42', '2025-11-29 08:50:42'),
+(18, '2025-11-29', 1, 14, 0, 2, 'Stock Out Added', '2025-11-29 08:50:56', '2025-11-29 08:50:56'),
+(19, '2025-11-29', 1, 14, 0, 11, 'Stock Out Added', '2025-11-29 08:51:02', '2025-11-29 08:51:02'),
+(20, '2025-11-29', 1, 14, 1, 0, 'Stock In Added', '2025-11-29 08:51:15', '2025-11-29 08:51:15'),
+(21, '2025-11-29', 1, 2, 0, 8, 'Stock Out Added', '2025-11-29 09:07:11', '2025-11-29 09:07:11'),
+(22, '2025-11-29', 1, 1, 0, 15, 'Stock Out Added', '2025-11-29 09:07:18', '2025-11-29 09:07:18'),
+(23, '2025-11-29', 1, 10, 0, 15, 'Stock Out Added', '2025-11-29 09:07:24', '2025-11-29 09:07:24'),
+(24, '2025-11-29', 1, 10, 0, 5, 'Stock Out Added', '2025-11-29 09:07:40', '2025-11-29 09:07:40'),
+(25, '2025-11-29', 1, 13, 0, 15, 'Stock Out Added', '2025-11-29 09:07:45', '2025-11-29 09:07:45');
+
+-- --------------------------------------------------------
+
+--
 -- Table structure for table `stocks`
 --
 
@@ -676,7 +772,10 @@ INSERT INTO `stocks` (`id`, `reg`, `date`, `foodId`, `stockIn`, `stockOut`, `rem
 (37, 2025112713, '2025-11-27', 13, 0, 1, NULL, 1, '2025-11-27 11:56:25', '2025-11-27 11:56:25'),
 (38, 2025112713, '2025-11-27', 14, 0, 1, NULL, 1, '2025-11-27 11:56:26', '2025-11-27 11:56:26'),
 (39, 2025112713, '2025-11-27', 15, 0, 1, NULL, 1, '2025-11-27 11:56:26', '2025-11-27 11:56:26'),
-(40, 2025112713, '2025-11-27', 16, 0, 1, NULL, 1, '2025-11-27 11:56:27', '2025-11-27 11:56:27');
+(40, 2025112713, '2025-11-27', 16, 0, 1, NULL, 1, '2025-11-27 11:56:27', '2025-11-27 11:56:27'),
+(41, 0, '2025-11-29', 6, 6, 0, 'Stock In', 0, '2025-11-29 05:31:16', '2025-11-29 05:31:16'),
+(42, 0, '2025-11-29', 1, 1, 0, 'Stock In', 0, '2025-11-29 05:46:18', '2025-11-29 05:46:18'),
+(43, 0, '2025-11-29', 2, 2, 0, 'Stock In', 3, '2025-11-29 05:47:55', '2025-11-29 05:47:55');
 
 -- --------------------------------------------------------
 
@@ -859,6 +958,20 @@ ALTER TABLE `personal_access_tokens`
   ADD KEY `personal_access_tokens_tokenable_type_tokenable_id_index` (`tokenable_type`,`tokenable_id`);
 
 --
+-- Indexes for table `products`
+--
+ALTER TABLE `products`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `product_stock_details`
+--
+ALTER TABLE `product_stock_details`
+  ADD PRIMARY KEY (`id`),
+  ADD KEY `product_stock_details_user_id_foreign` (`user_id`),
+  ADD KEY `product_stock_details_product_id_foreign` (`product_id`);
+
+--
 -- Indexes for table `stocks`
 --
 ALTER TABLE `stocks`
@@ -916,7 +1029,7 @@ ALTER TABLE `due_collections`
 -- AUTO_INCREMENT for table `expenses`
 --
 ALTER TABLE `expenses`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- AUTO_INCREMENT for table `expense_categories`
@@ -976,7 +1089,7 @@ ALTER TABLE `memberships`
 -- AUTO_INCREMENT for table `migrations`
 --
 ALTER TABLE `migrations`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=34;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=38;
 
 --
 -- AUTO_INCREMENT for table `orders`
@@ -997,10 +1110,22 @@ ALTER TABLE `personal_access_tokens`
   MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT;
 
 --
+-- AUTO_INCREMENT for table `products`
+--
+ALTER TABLE `products`
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=16;
+
+--
+-- AUTO_INCREMENT for table `product_stock_details`
+--
+ALTER TABLE `product_stock_details`
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=26;
+
+--
 -- AUTO_INCREMENT for table `stocks`
 --
 ALTER TABLE `stocks`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=41;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=44;
 
 --
 -- AUTO_INCREMENT for table `users`
@@ -1065,6 +1190,13 @@ ALTER TABLE `income_sub_categories`
 --
 ALTER TABLE `orders`
   ADD CONSTRAINT `orders_user_id_foreign` FOREIGN KEY (`user_id`) REFERENCES `admins` (`id`);
+
+--
+-- Constraints for table `product_stock_details`
+--
+ALTER TABLE `product_stock_details`
+  ADD CONSTRAINT `product_stock_details_product_id_foreign` FOREIGN KEY (`product_id`) REFERENCES `products` (`id`),
+  ADD CONSTRAINT `product_stock_details_user_id_foreign` FOREIGN KEY (`user_id`) REFERENCES `admins` (`id`);
 
 --
 -- Constraints for table `stocks`

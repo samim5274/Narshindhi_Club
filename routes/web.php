@@ -13,6 +13,7 @@ use App\Http\Controllers\Stock\StockController;
 use App\Http\Controllers\Expenses\ExpensesController;
 use App\Http\Controllers\Income\IncomeController;
 use App\Http\Controllers\Bank\BankController;
+use App\Http\Controllers\Purchase\PurchaseController;
 
 Auth::routes();
 
@@ -118,4 +119,12 @@ Route::group(['middleware' => ['admin']], function (){
     Route::get('/filter-total-diposit-date', [BankController::class, 'filterDipositDate'])->name('filter-total-diposit-date');
     Route::get('/total-withdraw', [BankController::class, 'totalWithdraw'])->name('total-withdraw');
     Route::get('/filter-total-Withdraw-date', [BankController::class, 'filterWithdrawDate'])->name('filter-total-Withdraw-date');
+
+    Route::get('/purchase', [PurchaseController::class, 'index'])->name('purchase-view');
+    Route::post('/create-new-product', [PurchaseController::class, 'createProduct'])->name('create-product');
+    Route::post('/edit-product/{id}', [PurchaseController::class, 'editProduct'])->name('edit-product');
+    Route::get('/purchase-stock-in-view', [PurchaseController::class, 'purchaseStockInView'])->name('purchase-stock-in-view');
+    Route::post('/product-stock-in/{id}', [PurchaseController::class, 'productStockIn'])->name('product-stock-in');
+    Route::get('/purchase-stock-out-view', [PurchaseController::class, 'purchaseStockOutView'])->name('purchase-stock-out-view');
+    Route::post('/product-stock-out/{id}', [PurchaseController::class, 'productStockOut'])->name('product-stock-out');
 });

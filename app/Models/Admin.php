@@ -59,4 +59,9 @@ class Admin extends Authenticatable
     {
         return $this->hasMany(Income::class, 'user_id');
     }
+
+    public function productstock()
+    {
+        return $this->hasMany(ProductStockDetails::class, 'user_id');
+    }
 }

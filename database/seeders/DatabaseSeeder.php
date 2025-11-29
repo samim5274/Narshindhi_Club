@@ -23,6 +23,7 @@ class DatabaseSeeder extends Seeder
             MembershipSeeder::class,
             IncomeCategorySeeder::class,
             IncomeSubcategorySeeder::class,
+            ProductSeeder::class,
         ]);
     }
 }
