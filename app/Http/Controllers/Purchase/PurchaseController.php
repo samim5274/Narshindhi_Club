@@ -127,4 +127,110 @@ class PurchaseController extends Controller
 
         return redirect()->back()->with('success', 'Product stock updated successfully.');
     }
+
+    public function totalStockInReport()
+    {
+        $company = Company::first();
+        $stockInDetails = ProductStockDetails::with('product')->where('stockIn', '>', '0')->orderBy('date', 'desc')->get();
+        return view('purchase.report.total_stock_in_report', compact('company','stockInDetails'));
+    }
+
+    public function filterStockInDate(Request $request)
+    {
+        $company = Company::first();
+
+        // Filter dates
+        $from = $request->input('from_date');
+        $to = $request->input('to_date');
+
+        // Stock In Query
+        $stockInQuery = ProductStockDetails::with('product')->where('stockIn', '>', 0);
+
+        if ($from) {
+            $stockInQuery->whereDate('date', '>=', Carbon::parse($from));
+        }
+
+        if ($to) {
+            $stockInQuery->whereDate('date', '<=', Carbon::parse($to));
+        }
+
+        $stockInDetails = $stockInQuery->orderBy('date', 'desc')->get();
+
+        if($request->has('btnPrint')){
+            return "Printing Functionality Coming Soon";
+        }
+
+        return view('purchase.report.total_stock_in_report', compact('company','stockInDetails'));
+    }
+
+    public function totalStockOutReport()
+    {
+        $company = Company::first();
+        $stockOutDetails = ProductStockDetails::with('product')->where('stockOut', '>', '0')->orderBy('date', 'desc')->get();
+        return view('purchase.report.total_stock_out_report', compact('company','stockOutDetails'));
+    }
+
+    public function filterStockOutDate(Request $request)
+    {
+        $company = Company::first();
+
+        // Filter dates
+        $from = $request->input('from_date');
+        $to = $request->input('to_date');
+
+        // Stock Out Query
+        $stockOutQuery = ProductStockDetails::with('product')->where('stockOut', '>', 0);
+
+        if ($from) {
+            $stockOutQuery->whereDate('date', '>=', Carbon::parse($from));
+        }
+
+        if ($to) {
+            $stockOutQuery->whereDate('date', '<=', Carbon::parse($to));
+        }
+
+        $stockOutDetails = $stockOutQuery->orderBy('date', 'desc')->get();
+
+        if($request->has('btnPrint')){
+            return "Printing Functionality Coming Soon";
+        }
+
+        return view('purchase.report.total_stock_out_report', compact('company','stockOutDetails'));
+    }
+
+    public function totalStockReport()
+    {
+        $company = Company::first();
+        $productsStock = ProductStockDetails::all();
+        return view('purchase.report.total_stock_report', compact('company','productsStock'));
+    }
+
+    public function filterStockReport(Request $request)
+    {
+        $company = Company::first();
+        
+        // Filter dates
+        $from = $request->input('from_date');
+        $to = $request->input('to_date');
+
+        // Stock Query
+        $stockQuery = ProductStockDetails::with('product');
+
+        if ($from) {
+            $stockQuery->whereDate('date', '>=', Carbon::parse($from));
+        }
+
+        if ($to) {
+            $stockQuery->whereDate('date', '<=', Carbon::parse($to));
+        }
+
+        $productsStock = $stockQuery->get();
+
+        if($request->has('btnPrint')){
+            return "Printing Functionality Coming Soon";
+        }
+
+        return view('purchase.report.total_stock_report', compact('company','productsStock'));
+    }
+
 }

@@ -127,4 +127,11 @@ Route::group(['middleware' => ['admin']], function (){
     Route::post('/product-stock-in/{id}', [PurchaseController::class, 'productStockIn'])->name('product-stock-in');
     Route::get('/purchase-stock-out-view', [PurchaseController::class, 'purchaseStockOutView'])->name('purchase-stock-out-view');
     Route::post('/product-stock-out/{id}', [PurchaseController::class, 'productStockOut'])->name('product-stock-out');
+    
+    Route::get('/total-stock-report', [PurchaseController::class, 'totalStockReport'])->name('total-stock-report');
+    Route::get('/filter-stock-date', [PurchaseController::class, 'filterStockReport'])->name('filter-stock-report');
+    Route::get('/total-stock-in-report', [PurchaseController::class, 'totalStockInReport'])->name('total-stock-in-report');
+    Route::get('/filter-stock-in-date', [PurchaseController::class, 'filterStockInDate'])->name('filter-stock-in-date');
+    Route::get('/total-stock-out-report', [PurchaseController::class, 'totalStockOutReport'])->name('total-stock-out-report');
+    Route::get('/filter-stock-out-date', [PurchaseController::class, 'filterStockOutDate'])->name('filter-stock-out-date');
 });

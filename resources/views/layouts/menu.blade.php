@@ -160,7 +160,15 @@
                     <ul class="pc-submenu">
                         <li class="pc-item"><a class="pc-link" href="{{ route('purchase-view') }}"><i class="fa-solid fa-basket-shopping"></i> Purchases</a></li>                       
                         <li class="pc-item"><a class="pc-link" href="{{ route('purchase-stock-in-view') }}"><i class="fa-solid fa-arrow-trend-up"></i> Stock In</a></li>                       
-                        <li class="pc-item"><a class="pc-link" href="{{ route('purchase-stock-out-view') }}"><i class="fa-solid fa-arrow-trend-down"></i> Stock Out</a></li>                       
+                        <li class="pc-item"><a class="pc-link" href="{{ route('purchase-stock-out-view') }}"><i class="fa-solid fa-arrow-trend-down"></i> Stock Out</a></li>             
+                        <li class="pc-item pc-hasmenu">
+                            <a href="#" class="pc-link"><i class="fa-solid fa-money-check-dollar"></i> Report<span class="pc-arrow"><i data-feather="chevron-right"></i></span></a>
+                            <ul class="pc-submenu">
+                                <li class="pc-item"><a class="pc-link" href="{{ url('/total-stock-report') }}"><i class="fa-brands fa-stack-overflow"></i> Total Stock</a></li>
+                                <li class="pc-item"><a class="pc-link" href="{{ url('/total-stock-in-report') }}"><i class="fa-solid fa-money-bill-1-wave"></i> Stock In</a></li>
+                                <li class="pc-item"><a class="pc-link" href="{{ url('/total-stock-out-report') }}"><i class="fa-solid fa-arrow-trend-up"></i> Stock Out</a></li>
+                            </ul>
+                        </li>          
                     </ul>
                 </li>
                 

@@ -114,33 +114,39 @@
                     <div class="col-md-6">
                         <div class="table-responsive" style="max-height: 750px; overflow-y: auto;">
                             <table class="table table-bordered table-hover align-middle shadow-sm mb-0">
-                                <thead class="table-dark">
+                                <thead class="table-dark position-sticky top-0">
                                     <tr>
                                         <th class="text-center" width="50">SL</th>
                                         <th>Date</th>
                                         <th>Name</th>
-                                        <th width="120">Stock</th>
+                                        <th width="120" class="text-end">Stock Out</th>
                                     </tr>
                                 </thead>
-
-                                <tbody id="food_table_body">
-                                    @if($stockOutDetails)
-                                    @foreach($stockOutDetails as $key => $val)
-                                    <tr>
-                                        <td>{{$loop->iteration}}</td>
-                                        <td>{{ \Carbon\Carbon::parse($val->date)->format('d M, Y') }}</td>
-                                        <td>{{$val->product->name}}</td>
-                                        <td>{{$val->stockOut}}</td>
-                                    </tr>
-                                    @endforeach
-                                    @endif   
-                                    <tr>
-                                        <td colspan="2" class="text-center">Total:</td>
-                                        <td>{{ $stockOutDetails->sum('stockOut') }}</td>
-                                    </tr>                         
+                                <tbody>
+                                    @forelse($stockOutDetails as $val)
+                                        <tr>
+                                            <td class="text-center">{{ $loop->iteration }}</td>
+                                            <td>{{ \Carbon\Carbon::parse($val->date)->format('d M, Y') }}</td>
+                                            <td>{{ $val->product->name }}</td>
+                                            <td class="text-end">{{ $val->stockOut }}</td>
+                                        </tr>
+                                    @empty
+                                        <tr>
+                                            <td colspan="4" class="text-center text-muted py-3">
+                                                No stock out records found.
+                                            </td>
+                                        </tr>
+                                    @endforelse
                                 </tbody>
+                                <tfoot>
+                                    <tr class="table-secondary fw-bold">
+                                        <td colspan="3" class="text-center">Total Stock Out:</td>
+                                        <td class="text-end">{{ $stockOutDetails->sum('stockOut') }}</td>
+                                    </tr>
+                                </tfoot>
                             </table>
                         </div>
+
                     </div>
                 </div>
             </div>
