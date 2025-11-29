@@ -140,6 +140,6 @@ Route::group(['middleware' => ['admin']], function (){
     Route::get('/total-stock-out-report', [PurchaseController::class, 'totalStockOutReport'])->name('total-stock-out-report');
     Route::get('/filter-stock-out-date', [PurchaseController::class, 'filterStockOutDate'])->name('filter-stock-out-date');
 
-    Route::get('/total-transection', [AccountController::class, 'totalTransection'])->name('total-transection');
+    Route::get('/total-transection', [AccountController::class, 'totalTransection'])->name('total-transection-report');
     Route::get('/filter-total-transection', [AccountController::class, 'filterTotalTransection'])->name('filter-total-transection');
 });

@@ -153,7 +153,7 @@
                 <li class="pc-item pc-hasmenu">
                     <a href="#" class="pc-link"><span class="pc-micon"><i class="fa-solid fa-money-bill-transfer"></i></span><span class="pc-mtext">T.T.S</span><span class="pc-arrow"><i data-feather="chevron-right"></i></span></a>
                     <ul class="pc-submenu">
-                        <li class="pc-item"><a class="pc-link" href="{{ route('total-transection') }}"><i class="fa-solid fa-money-check-dollar"></i> Total Transection</a></li>
+                        <li class="pc-item"><a class="pc-link" href="{{ route('total-transection-report') }}"><i class="fa-solid fa-money-check-dollar"></i> Total Transection</a></li>
                         
                     </ul>
                 </li>
