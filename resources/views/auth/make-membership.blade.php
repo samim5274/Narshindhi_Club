@@ -104,7 +104,6 @@
                                                 <td>{{ $user->email }}</td>
                                                 <td>{{ $user->phone ?? '-' }}</td>
                                                 <td>{{ $user->membership_type }}</td>
-                                                <td>{{ $user->point ?? '-' }}</td>
                                                 <td>{{ $user->start_date ?? '-' }}</td>
                                                 <td>{{ $user->expiry_date ?? '-' }}</td> 
                                                 <td class="text-center">

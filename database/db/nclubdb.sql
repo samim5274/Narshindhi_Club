@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost
--- Generation Time: Nov 27, 2025 at 10:32 AM
+-- Generation Time: Nov 29, 2025 at 06:28 AM
 -- Server version: 10.4.32-MariaDB
 -- PHP Version: 8.2.12
 
@@ -51,7 +51,7 @@ CREATE TABLE `admins` (
 --
 
 INSERT INTO `admins` (`id`, `name`, `email`, `facebook_id`, `google_id`, `github_id`, `password`, `photo`, `phone`, `address`, `dob`, `role`, `status`, `remember_token`, `created_at`, `updated_at`) VALUES
-(1, 'SAMIM-HosseN', 'admin@admin.com', NULL, NULL, NULL, '$2y$12$R4YF11SvOwmJ1A84m7k8oeVn0hYR2H1LCSmiLwkwM/WJONqdqmSuW', 'user-1763192660.png', '01762164746', 'Dhaka', '2001-12-31', 1, 1, NULL, '2025-11-08 23:12:41', '2025-11-14 13:44:20');
+(1, 'SAMIM HOSSEN', 'admin@example.com', NULL, NULL, NULL, '$2y$12$OtH1/Jkn0Zrmmd.eoL8eLuwSgZmLgRVBmxJuh6UfF3kLQPMafye8O', 'user-1764239956.png', '01700000000', 'Admin Office', '2001-01-01', 1, 1, NULL, '2025-11-27 10:13:21', '2025-11-27 10:39:16');
 
 -- --------------------------------------------------------
 
@@ -112,21 +112,20 @@ CREATE TABLE `carts` (
 --
 
 INSERT INTO `carts` (`id`, `reg`, `date`, `userId`, `foodId`, `quantity`, `price`, `created_at`, `updated_at`) VALUES
-(1, 2025112711, '2025-11-27', 1, 1, 1, 250, '2025-11-27 08:34:05', '2025-11-27 08:34:05'),
-(2, 2025112711, '2025-11-27', 1, 2, 1, 800, '2025-11-27 08:34:06', '2025-11-27 08:34:06'),
-(3, 2025112711, '2025-11-27', 1, 3, 1, 180, '2025-11-27 08:34:07', '2025-11-27 08:34:07'),
-(4, 2025112711, '2025-11-27', 1, 4, 1, 350, '2025-11-27 08:34:08', '2025-11-27 08:34:08'),
-(5, 2025112712, '2025-11-27', 1, 1, 1, 250, '2025-11-27 08:38:49', '2025-11-27 08:38:49'),
-(6, 2025112712, '2025-11-27', 1, 2, 1, 800, '2025-11-27 08:38:50', '2025-11-27 08:38:50'),
-(7, 2025112712, '2025-11-27', 1, 3, 1, 180, '2025-11-27 08:38:50', '2025-11-27 08:38:50'),
-(8, 2025112712, '2025-11-27', 1, 4, 1, 350, '2025-11-27 08:38:51', '2025-11-27 08:38:51'),
-(9, 2025112712, '2025-11-27', 1, 5, 1, 200, '2025-11-27 08:38:52', '2025-11-27 08:38:52'),
-(10, 2025112713, '2025-11-27', 1, 1, 1, 250, '2025-11-27 08:45:41', '2025-11-27 08:45:41'),
-(11, 2025112713, '2025-11-27', 1, 2, 1, 800, '2025-11-27 08:45:41', '2025-11-27 08:45:41'),
-(12, 2025112713, '2025-11-27', 1, 3, 1, 180, '2025-11-27 08:45:42', '2025-11-27 08:45:42'),
-(13, 2025112713, '2025-11-27', 1, 4, 1, 350, '2025-11-27 08:45:42', '2025-11-27 08:45:42'),
-(14, 2025112713, '2025-11-27', 1, 5, 1, 200, '2025-11-27 08:45:43', '2025-11-27 08:45:43'),
-(15, 2025112713, '2025-11-27', 1, 6, 1, 150, '2025-11-27 08:45:43', '2025-11-27 08:45:43');
+(27, 2025112711, '2025-11-27', 1, 1, 1, 250, '2025-11-27 11:50:08', '2025-11-27 11:50:08'),
+(28, 2025112711, '2025-11-27', 1, 2, 1, 800, '2025-11-27 11:50:09', '2025-11-27 11:50:09'),
+(29, 2025112711, '2025-11-27', 1, 3, 1, 180, '2025-11-27 11:50:10', '2025-11-27 11:50:10'),
+(30, 2025112711, '2025-11-27', 1, 4, 1, 350, '2025-11-27 11:50:10', '2025-11-27 11:50:10'),
+(31, 2025112712, '2025-11-27', 1, 3, 1, 180, '2025-11-27 11:51:57', '2025-11-27 11:51:57'),
+(32, 2025112712, '2025-11-27', 1, 4, 1, 350, '2025-11-27 11:51:58', '2025-11-27 11:51:58'),
+(33, 2025112713, '2025-11-27', 1, 20, 1, 130, '2025-11-27 11:56:22', '2025-11-27 11:56:22'),
+(34, 2025112713, '2025-11-27', 1, 19, 1, 950, '2025-11-27 11:56:23', '2025-11-27 11:56:23'),
+(35, 2025112713, '2025-11-27', 1, 18, 1, 550, '2025-11-27 11:56:24', '2025-11-27 11:56:24'),
+(36, 2025112713, '2025-11-27', 1, 17, 1, 70, '2025-11-27 11:56:25', '2025-11-27 11:56:25'),
+(37, 2025112713, '2025-11-27', 1, 13, 1, 200, '2025-11-27 11:56:25', '2025-11-27 11:56:25'),
+(38, 2025112713, '2025-11-27', 1, 14, 1, 380, '2025-11-27 11:56:26', '2025-11-27 11:56:26'),
+(39, 2025112713, '2025-11-27', 1, 15, 1, 210, '2025-11-27 11:56:26', '2025-11-27 11:56:26'),
+(40, 2025112713, '2025-11-27', 1, 16, 1, 140, '2025-11-27 11:56:27', '2025-11-27 11:56:27');
 
 -- --------------------------------------------------------
 
@@ -150,7 +149,7 @@ CREATE TABLE `companies` (
 --
 
 INSERT INTO `companies` (`id`, `name`, `address`, `email`, `phone`, `website`, `created_at`, `updated_at`) VALUES
-(1, 'Smart Food Restaurant', 'Dhaka, Bangladesh', 'info@smartfood.com', '01712345678', 'https://smartfood.com', '2025-11-27 08:32:57', '2025-11-27 08:32:57');
+(1, 'Smart Food Restaurant', 'Dhaka, Bangladesh', 'info@smartfood.com', '01712345678', 'https://smartfood.com', '2025-11-27 10:13:22', '2025-11-27 10:13:22');
 
 -- --------------------------------------------------------
 
@@ -178,8 +177,9 @@ CREATE TABLE `due_collections` (
 --
 
 INSERT INTO `due_collections` (`id`, `reg`, `member_id`, `total`, `discount`, `due`, `pay`, `payment_date`, `user_id`, `note`, `created_at`, `updated_at`) VALUES
-(1, '2025112711', 1, 1580.00, 300.00, 0.00, 1000.00, '2025-11-27', 1, 'N/A', '2025-11-27 08:38:31', '2025-11-27 08:38:31'),
-(2, '2025112713', 1, 1930.00, 0.00, 0.00, 1830.00, '2025-11-27', 1, 'N/A', '2025-11-27 08:46:06', '2025-11-27 08:46:06');
+(12, NULL, 2, 1000.00, 200.00, 1000.00, 800.00, '2025-11-27', 1, 'Due collection for member phone: 01762164746', '2025-11-27 11:50:31', '2025-11-27 11:50:31'),
+(13, NULL, 2, 1500.00, 100.00, 500.00, 400.00, '2025-11-27', 1, 'Due collection for member phone: 01762164746', '2025-11-27 11:52:17', '2025-11-27 11:52:17'),
+(17, NULL, 1, 2000.00, 500.00, 2000.00, 1500.00, '2025-11-27', 1, 'Due collection for member phone: 01700000000', '2025-11-27 11:59:14', '2025-11-27 11:59:14');
 
 -- --------------------------------------------------------
 
@@ -219,11 +219,11 @@ CREATE TABLE `expense_categories` (
 --
 
 INSERT INTO `expense_categories` (`id`, `name`, `description`, `created_at`, `updated_at`) VALUES
-(1, 'Office', 'Office related expenses', '2025-11-27 08:32:57', '2025-11-27 08:32:57'),
-(2, 'Food', 'Food & Beverages', '2025-11-27 08:32:57', '2025-11-27 08:32:57'),
-(3, 'Travel', 'Travel and transportation', '2025-11-27 08:32:57', '2025-11-27 08:32:57'),
-(4, 'Utilities', 'Electricity, Water, Internet, etc.', '2025-11-27 08:32:57', '2025-11-27 08:32:57'),
-(5, 'Maintenance', 'Repairs & maintenance', '2025-11-27 08:32:57', '2025-11-27 08:32:57');
+(1, 'Office', 'Office related expenses', '2025-11-27 10:13:22', '2025-11-27 10:13:22'),
+(2, 'Food', 'Food & Beverages', '2025-11-27 10:13:22', '2025-11-27 10:13:22'),
+(3, 'Travel', 'Travel and transportation', '2025-11-27 10:13:22', '2025-11-27 10:13:22'),
+(4, 'Utilities', 'Electricity, Water, Internet, etc.', '2025-11-27 10:13:22', '2025-11-27 10:13:22'),
+(5, 'Maintenance', 'Repairs & maintenance', '2025-11-27 10:13:22', '2025-11-27 10:13:22');
 
 -- --------------------------------------------------------
 
@@ -245,22 +245,22 @@ CREATE TABLE `expense_subcategories` (
 --
 
 INSERT INTO `expense_subcategories` (`id`, `category_id`, `name`, `description`, `created_at`, `updated_at`) VALUES
-(1, 1, 'Stationery', 'Stationery expense under Office', '2025-11-27 08:32:57', '2025-11-27 08:32:57'),
-(2, 1, 'Software', 'Software expense under Office', '2025-11-27 08:32:57', '2025-11-27 08:32:57'),
-(3, 1, 'Hardware', 'Hardware expense under Office', '2025-11-27 08:32:57', '2025-11-27 08:32:57'),
-(4, 2, 'Snacks', 'Snacks expense under Food', '2025-11-27 08:32:57', '2025-11-27 08:32:57'),
-(5, 2, 'Lunch', 'Lunch expense under Food', '2025-11-27 08:32:57', '2025-11-27 08:32:57'),
-(6, 2, 'Beverages', 'Beverages expense under Food', '2025-11-27 08:32:57', '2025-11-27 08:32:57'),
-(7, 3, 'Taxi', 'Taxi expense under Travel', '2025-11-27 08:32:57', '2025-11-27 08:32:57'),
-(8, 3, 'Bus', 'Bus expense under Travel', '2025-11-27 08:32:57', '2025-11-27 08:32:57'),
-(9, 3, 'Flight', 'Flight expense under Travel', '2025-11-27 08:32:57', '2025-11-27 08:32:57'),
-(10, 4, 'Electricity', 'Electricity expense under Utilities', '2025-11-27 08:32:57', '2025-11-27 08:32:57'),
-(11, 4, 'Water', 'Water expense under Utilities', '2025-11-27 08:32:57', '2025-11-27 08:32:57'),
-(12, 4, 'Internet', 'Internet expense under Utilities', '2025-11-27 08:32:57', '2025-11-27 08:32:57'),
-(13, 4, 'Gas', 'Gas expense under Utilities', '2025-11-27 08:32:57', '2025-11-27 08:32:57'),
-(14, 5, 'Plumbing', 'Plumbing expense under Maintenance', '2025-11-27 08:32:57', '2025-11-27 08:32:57'),
-(15, 5, 'Electrical', 'Electrical expense under Maintenance', '2025-11-27 08:32:57', '2025-11-27 08:32:57'),
-(16, 5, 'Cleaning', 'Cleaning expense under Maintenance', '2025-11-27 08:32:57', '2025-11-27 08:32:57');
+(1, 1, 'Stationery', 'Stationery expense under Office', '2025-11-27 10:13:22', '2025-11-27 10:13:22'),
+(2, 1, 'Software', 'Software expense under Office', '2025-11-27 10:13:22', '2025-11-27 10:13:22'),
+(3, 1, 'Hardware', 'Hardware expense under Office', '2025-11-27 10:13:22', '2025-11-27 10:13:22'),
+(4, 2, 'Snacks', 'Snacks expense under Food', '2025-11-27 10:13:22', '2025-11-27 10:13:22'),
+(5, 2, 'Lunch', 'Lunch expense under Food', '2025-11-27 10:13:22', '2025-11-27 10:13:22'),
+(6, 2, 'Beverages', 'Beverages expense under Food', '2025-11-27 10:13:22', '2025-11-27 10:13:22'),
+(7, 3, 'Taxi', 'Taxi expense under Travel', '2025-11-27 10:13:22', '2025-11-27 10:13:22'),
+(8, 3, 'Bus', 'Bus expense under Travel', '2025-11-27 10:13:22', '2025-11-27 10:13:22'),
+(9, 3, 'Flight', 'Flight expense under Travel', '2025-11-27 10:13:22', '2025-11-27 10:13:22'),
+(10, 4, 'Electricity', 'Electricity expense under Utilities', '2025-11-27 10:13:22', '2025-11-27 10:13:22'),
+(11, 4, 'Water', 'Water expense under Utilities', '2025-11-27 10:13:22', '2025-11-27 10:13:22'),
+(12, 4, 'Internet', 'Internet expense under Utilities', '2025-11-27 10:13:22', '2025-11-27 10:13:22'),
+(13, 4, 'Gas', 'Gas expense under Utilities', '2025-11-27 10:13:22', '2025-11-27 10:13:22'),
+(14, 5, 'Plumbing', 'Plumbing expense under Maintenance', '2025-11-27 10:13:22', '2025-11-27 10:13:22'),
+(15, 5, 'Electrical', 'Electrical expense under Maintenance', '2025-11-27 10:13:22', '2025-11-27 10:13:22'),
+(16, 5, 'Cleaning', 'Cleaning expense under Maintenance', '2025-11-27 10:13:22', '2025-11-27 10:13:22');
 
 -- --------------------------------------------------------
 
@@ -304,26 +304,26 @@ CREATE TABLE `food` (
 --
 
 INSERT INTO `food` (`id`, `name`, `price`, `category_id`, `stock`, `status`, `image`, `ingredients`, `sku`, `remark`, `created_at`, `updated_at`) VALUES
-(1, 'Cheese Burger', 250, 1, 47, 1, 'cheese_burger.jpg', 'Bun, Cheese, Patty, Lettuce, Tomato', '1VW1BAUK', 'Best seller', '2025-11-27 08:32:56', '2025-11-27 08:45:41'),
-(2, 'Pepperoni Pizza', 800, 2, 27, 1, 'pepperoni_pizza.jpg', 'Dough, Cheese, Pepperoni, Tomato Sauce', 'CNVWZ8GY', 'Spicy and hot', '2025-11-27 08:32:56', '2025-11-27 08:45:41'),
-(3, 'Chicken Sandwich', 180, 3, 37, 1, 'chicken_sandwich.jpg', 'Bread, Chicken, Lettuce, Mayo', 'H0FZLOFR', '', '2025-11-27 08:32:56', '2025-11-27 08:45:42'),
-(4, 'Spaghetti Bolognese', 350, 4, 17, 1, 'spaghetti.jpg', 'Spaghetti, Tomato Sauce, Beef', 'YPTYOVSF', '', '2025-11-27 08:32:56', '2025-11-27 08:45:42'),
-(5, 'Caesar Salad', 200, 5, 23, 1, 'caesar_salad.jpg', 'Lettuce, Chicken, Caesar Dressing, Croutons', 'NYMYWEHP', '', '2025-11-27 08:32:56', '2025-11-27 08:45:43'),
-(6, 'Chocolate Cake', 150, 6, 14, 1, 'chocolate_cake.jpg', 'Flour, Cocoa, Sugar, Eggs, Butter', 'FSGHL2M4', 'Sweet dessert', '2025-11-27 08:32:56', '2025-11-27 08:45:43'),
-(7, 'Coca Cola', 60, 7, 100, 1, 'coca_cola.jpg', 'Carbonated Water, Sugar, Flavor', 'HAVGBYEP', '', '2025-11-27 08:32:56', '2025-11-27 08:32:56'),
-(8, 'Grilled Salmon', 900, 8, 10, 1, 'grilled_salmon.jpg', 'Salmon, Lemon, Spices', 'BILQA0AZ', 'Premium dish', '2025-11-27 08:32:56', '2025-11-27 08:32:56'),
-(9, 'BBQ Chicken', 500, 9, 20, 1, 'bbq_chicken.jpg', 'Chicken, BBQ Sauce, Spices', 'YI4V3XVO', '', '2025-11-27 08:32:56', '2025-11-27 08:32:56'),
-(10, 'Pancakes', 120, 10, 30, 1, 'pancakes.jpg', 'Flour, Eggs, Milk, Sugar, Butter', 'YFVKBNYR', 'Breakfast special', '2025-11-27 08:32:56', '2025-11-27 08:32:56'),
-(11, 'Veggie Burger', 220, 1, 40, 1, 'veggie_burger.jpg', 'Bun, Veg Patty, Lettuce, Tomato, Cheese', 'ZM2I7ARK', '', '2025-11-27 08:32:56', '2025-11-27 08:32:56'),
-(12, 'Margherita Pizza', 700, 2, 25, 1, 'margherita_pizza.jpg', 'Dough, Tomato Sauce, Cheese, Basil', 'JDJSH01E', '', '2025-11-27 08:32:56', '2025-11-27 08:32:56'),
-(13, 'Tuna Sandwich', 200, 3, 35, 1, 'tuna_sandwich.jpg', 'Bread, Tuna, Lettuce, Mayo', 'F0UARSJ7', '', '2025-11-27 08:32:57', '2025-11-27 08:32:57'),
-(14, 'Fettuccine Alfredo', 380, 4, 20, 1, 'fettuccine_alfredo.jpg', 'Fettuccine, Cream, Cheese, Butter', 'RIIJBNDV', '', '2025-11-27 08:32:57', '2025-11-27 08:32:57'),
-(15, 'Greek Salad', 210, 5, 30, 1, 'greek_salad.jpg', 'Lettuce, Feta, Olive, Tomato, Cucumber', 'XP7UDPDU', '', '2025-11-27 08:32:57', '2025-11-27 08:32:57'),
-(16, 'Vanilla Cake', 140, 6, 20, 1, 'vanilla_cake.jpg', 'Flour, Sugar, Eggs, Butter, Vanilla', '51OA53NO', '', '2025-11-27 08:32:57', '2025-11-27 08:32:57'),
-(17, 'Orange Juice', 70, 7, 80, 1, 'orange_juice.jpg', 'Orange, Water, Sugar', 'K8TP7FED', '', '2025-11-27 08:32:57', '2025-11-27 08:32:57'),
-(18, 'Grilled Chicken', 550, 9, 25, 1, 'grilled_chicken.jpg', 'Chicken, Herbs, Spices', 'PA2M2YLN', '', '2025-11-27 08:32:57', '2025-11-27 08:32:57'),
-(19, 'Salmon Sushi', 950, 8, 15, 1, 'salmon_sushi.jpg', 'Salmon, Rice, Seaweed', 'CWHVDNIN', 'Premium', '2025-11-27 08:32:57', '2025-11-27 08:32:57'),
-(20, 'French Toast', 130, 10, 25, 1, 'french_toast.jpg', 'Bread, Eggs, Milk, Sugar, Butter', 'JIEVQWEO', 'Breakfast special', '2025-11-27 08:32:57', '2025-11-27 08:32:57');
+(1, 'Cheese Burger', 250, 1, 43, 1, 'cheese_burger.jpg', 'Bun, Cheese, Patty, Lettuce, Tomato', 'TQMKDYSW', 'Best seller', '2025-11-27 10:13:22', '2025-11-27 11:50:08'),
+(2, 'Pepperoni Pizza', 800, 2, 21, 1, 'pepperoni_pizza.jpg', 'Dough, Cheese, Pepperoni, Tomato Sauce', 'AG5GFMGB', 'Spicy and hot', '2025-11-27 10:13:22', '2025-11-27 11:50:09'),
+(3, 'Chicken Sandwich', 180, 3, 32, 1, 'chicken_sandwich.jpg', 'Bread, Chicken, Lettuce, Mayo', 'L9WNTDAV', '', '2025-11-27 10:13:22', '2025-11-27 11:51:57'),
+(4, 'Spaghetti Bolognese', 350, 4, 17, 1, 'spaghetti.jpg', 'Spaghetti, Tomato Sauce, Beef', '1CZPXFLI', '', '2025-11-27 10:13:22', '2025-11-27 11:51:58'),
+(5, 'Caesar Salad', 200, 5, 25, 1, 'caesar_salad.jpg', 'Lettuce, Chicken, Caesar Dressing, Croutons', 'OLSZCOTD', '', '2025-11-27 10:13:22', '2025-11-27 10:13:22'),
+(6, 'Chocolate Cake', 150, 6, 14, 1, 'chocolate_cake.jpg', 'Flour, Cocoa, Sugar, Eggs, Butter', 'JUYPBHXL', 'Sweet dessert', '2025-11-27 10:13:22', '2025-11-27 11:42:56'),
+(7, 'Coca Cola', 60, 7, 100, 1, 'coca_cola.jpg', 'Carbonated Water, Sugar, Flavor', 'A1ABU3GH', '', '2025-11-27 10:13:22', '2025-11-27 10:13:22'),
+(8, 'Grilled Salmon', 900, 8, 10, 1, 'grilled_salmon.jpg', 'Salmon, Lemon, Spices', 'XCGKATMT', 'Premium dish', '2025-11-27 10:13:22', '2025-11-27 10:13:22'),
+(9, 'BBQ Chicken', 500, 9, 20, 1, 'bbq_chicken.jpg', 'Chicken, BBQ Sauce, Spices', 'F48YPFHZ', '', '2025-11-27 10:13:22', '2025-11-27 10:13:22'),
+(10, 'Pancakes', 120, 10, 30, 1, 'pancakes.jpg', 'Flour, Eggs, Milk, Sugar, Butter', 'KTUMI74R', 'Breakfast special', '2025-11-27 10:13:22', '2025-11-27 10:13:22'),
+(11, 'Veggie Burger', 220, 1, 40, 1, 'veggie_burger.jpg', 'Bun, Veg Patty, Lettuce, Tomato, Cheese', 'JSID1KCN', '', '2025-11-27 10:13:22', '2025-11-27 10:13:22'),
+(12, 'Margherita Pizza', 700, 2, 25, 1, 'margherita_pizza.jpg', 'Dough, Tomato Sauce, Cheese, Basil', 'XCVHP1OS', '', '2025-11-27 10:13:22', '2025-11-27 10:13:22'),
+(13, 'Tuna Sandwich', 200, 3, 34, 1, 'tuna_sandwich.jpg', 'Bread, Tuna, Lettuce, Mayo', 'FCAUK857', '', '2025-11-27 10:13:22', '2025-11-27 11:56:25'),
+(14, 'Fettuccine Alfredo', 380, 4, 18, 1, 'fettuccine_alfredo.jpg', 'Fettuccine, Cream, Cheese, Butter', '5L9AISQO', '', '2025-11-27 10:13:22', '2025-11-27 11:56:26'),
+(15, 'Greek Salad', 210, 5, 27, 1, 'greek_salad.jpg', 'Lettuce, Feta, Olive, Tomato, Cucumber', 'JK6YVZQC', '', '2025-11-27 10:13:22', '2025-11-27 11:56:26'),
+(16, 'Vanilla Cake', 140, 6, 19, 1, 'vanilla_cake.jpg', 'Flour, Sugar, Eggs, Butter, Vanilla', 'WUQFVW8I', '', '2025-11-27 10:13:22', '2025-11-27 11:56:27'),
+(17, 'Orange Juice', 70, 7, 79, 1, 'orange_juice.jpg', 'Orange, Water, Sugar', '0E8NDLHU', '', '2025-11-27 10:13:22', '2025-11-27 11:56:25'),
+(18, 'Grilled Chicken', 550, 9, 24, 1, 'grilled_chicken.jpg', 'Chicken, Herbs, Spices', 'TI7D7HUM', '', '2025-11-27 10:13:22', '2025-11-27 11:56:24'),
+(19, 'Salmon Sushi', 950, 8, 14, 1, 'salmon_sushi.jpg', 'Salmon, Rice, Seaweed', 'Q7MJ4Y8V', 'Premium', '2025-11-27 10:13:22', '2025-11-27 11:56:23'),
+(20, 'French Toast', 130, 10, 23, 1, 'french_toast.jpg', 'Bread, Eggs, Milk, Sugar, Butter', 'YGUZMLJS', 'Breakfast special', '2025-11-27 10:13:22', '2025-11-27 11:56:22');
 
 -- --------------------------------------------------------
 
@@ -343,16 +343,100 @@ CREATE TABLE `food_categories` (
 --
 
 INSERT INTO `food_categories` (`id`, `name`, `created_at`, `updated_at`) VALUES
-(1, 'Burgers', '2025-11-27 08:32:56', '2025-11-27 08:32:56'),
-(2, 'Pizza', '2025-11-27 08:32:56', '2025-11-27 08:32:56'),
-(3, 'Sandwiches', '2025-11-27 08:32:56', '2025-11-27 08:32:56'),
-(4, 'Pasta', '2025-11-27 08:32:56', '2025-11-27 08:32:56'),
-(5, 'Salads', '2025-11-27 08:32:56', '2025-11-27 08:32:56'),
-(6, 'Desserts', '2025-11-27 08:32:56', '2025-11-27 08:32:56'),
-(7, 'Beverages', '2025-11-27 08:32:56', '2025-11-27 08:32:56'),
-(8, 'Seafood', '2025-11-27 08:32:56', '2025-11-27 08:32:56'),
-(9, 'Grill', '2025-11-27 08:32:56', '2025-11-27 08:32:56'),
-(10, 'Breakfast', '2025-11-27 08:32:56', '2025-11-27 08:32:56');
+(1, 'Burgers', '2025-11-27 10:13:21', '2025-11-27 10:13:21'),
+(2, 'Pizza', '2025-11-27 10:13:21', '2025-11-27 10:13:21'),
+(3, 'Sandwiches', '2025-11-27 10:13:21', '2025-11-27 10:13:21'),
+(4, 'Pasta', '2025-11-27 10:13:21', '2025-11-27 10:13:21'),
+(5, 'Salads', '2025-11-27 10:13:21', '2025-11-27 10:13:21'),
+(6, 'Desserts', '2025-11-27 10:13:21', '2025-11-27 10:13:21'),
+(7, 'Beverages', '2025-11-27 10:13:21', '2025-11-27 10:13:21'),
+(8, 'Seafood', '2025-11-27 10:13:21', '2025-11-27 10:13:21'),
+(9, 'Grill', '2025-11-27 10:13:22', '2025-11-27 10:13:22'),
+(10, 'Breakfast', '2025-11-27 10:13:22', '2025-11-27 10:13:22');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `incomes`
+--
+
+CREATE TABLE `incomes` (
+  `id` bigint(20) UNSIGNED NOT NULL,
+  `category_id` bigint(20) UNSIGNED NOT NULL,
+  `subcategory_id` bigint(20) UNSIGNED NOT NULL,
+  `user_id` bigint(20) UNSIGNED NOT NULL,
+  `title` varchar(255) NOT NULL,
+  `description` text DEFAULT NULL,
+  `amount` decimal(10,2) NOT NULL,
+  `income_date` date NOT NULL,
+  `created_at` timestamp NULL DEFAULT NULL,
+  `updated_at` timestamp NULL DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+--
+-- Dumping data for table `incomes`
+--
+
+INSERT INTO `incomes` (`id`, `category_id`, `subcategory_id`, `user_id`, `title`, `description`, `amount`, `income_date`, `created_at`, `updated_at`) VALUES
+(1, 6, 12, 1, 'Sale', 'N/A', 150.00, '2025-11-29', '2025-11-29 05:28:16', '2025-11-29 05:28:16');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `income_categories`
+--
+
+CREATE TABLE `income_categories` (
+  `id` bigint(20) UNSIGNED NOT NULL,
+  `name` varchar(255) NOT NULL,
+  `description` varchar(255) DEFAULT NULL,
+  `created_at` timestamp NULL DEFAULT NULL,
+  `updated_at` timestamp NULL DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+--
+-- Dumping data for table `income_categories`
+--
+
+INSERT INTO `income_categories` (`id`, `name`, `description`, `created_at`, `updated_at`) VALUES
+(1, 'Business Income', 'Income from business', '2025-11-29 05:27:22', '2025-11-29 05:27:22'),
+(2, 'Salary', 'Monthly salary from job', '2025-11-29 05:27:22', '2025-11-29 05:27:22'),
+(3, 'Investment', 'Income from investments', '2025-11-29 05:27:22', '2025-11-29 05:27:22'),
+(4, 'Freelancing', 'Freelancing earning', '2025-11-29 05:27:22', '2025-11-29 05:27:22'),
+(5, 'Rental Income', 'Income from renting properties', '2025-11-29 05:27:22', '2025-11-29 05:27:22'),
+(6, 'Sale', NULL, '2025-11-29 05:27:37', '2025-11-29 05:27:37');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `income_sub_categories`
+--
+
+CREATE TABLE `income_sub_categories` (
+  `id` bigint(20) UNSIGNED NOT NULL,
+  `category_id` bigint(20) UNSIGNED NOT NULL,
+  `name` varchar(255) NOT NULL,
+  `description` varchar(255) DEFAULT NULL,
+  `created_at` timestamp NULL DEFAULT NULL,
+  `updated_at` timestamp NULL DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+--
+-- Dumping data for table `income_sub_categories`
+--
+
+INSERT INTO `income_sub_categories` (`id`, `category_id`, `name`, `description`, `created_at`, `updated_at`) VALUES
+(1, 1, 'Retail Shop', 'Income from shop sales', '2025-11-29 05:27:25', '2025-11-29 05:27:25'),
+(2, 1, 'Wholesale', 'Wholesale business income', '2025-11-29 05:27:25', '2025-11-29 05:27:25'),
+(3, 2, 'Basic Salary', 'Monthly salary', '2025-11-29 05:27:25', '2025-11-29 05:27:25'),
+(4, 2, 'Overtime', 'Extra work payment', '2025-11-29 05:27:25', '2025-11-29 05:27:25'),
+(5, 3, 'Stocks', 'Income from stock investment', '2025-11-29 05:27:25', '2025-11-29 05:27:25'),
+(6, 3, 'Bank Interest', 'Interest income', '2025-11-29 05:27:25', '2025-11-29 05:27:25'),
+(7, 4, 'Web Development', 'Freelance projects', '2025-11-29 05:27:25', '2025-11-29 05:27:25'),
+(8, 4, 'Graphics Design', 'Freelance graphics work', '2025-11-29 05:27:25', '2025-11-29 05:27:25'),
+(9, 5, 'House Rent', 'Rent from homes', '2025-11-29 05:27:25', '2025-11-29 05:27:25'),
+(10, 5, 'Shop Rent', 'Rent from shops', '2025-11-29 05:27:25', '2025-11-29 05:27:25'),
+(12, 6, 'Box Sale', 'N/A', '2025-11-29 05:27:43', '2025-11-29 05:27:43');
 
 -- --------------------------------------------------------
 
@@ -380,8 +464,8 @@ CREATE TABLE `memberships` (
 --
 
 INSERT INTO `memberships` (`id`, `name`, `email`, `phone`, `membership_type`, `point`, `start_date`, `expiry_date`, `is_active`, `remarks`, `created_at`, `updated_at`) VALUES
-(1, 'SAMIM-HosseN', 'samim@gmail.com', '01762164746', 'Silver', '0', '2025-11-01', '2026-03-31', 1, NULL, '2025-11-25 05:20:12', '2025-11-25 05:20:12'),
-(2, 'Fahim Ahmed', 'info@fahim.com', '01762164741', 'Silver', '0', '2025-11-01', '2025-11-30', 1, NULL, '2025-11-25 06:10:03', '2025-11-25 06:10:03');
+(1, 'Default Member', 'member@example.com', '01700000000', 'Platinum', '0', '2025-11-27', '2026-11-27', 1, 'Auto-generated member.', '2025-11-27 10:19:05', '2025-11-27 10:19:05'),
+(2, 'SAMIM HOSSEN', 'samim@example.com', '01762164746', 'Platinum', '0', '2025-11-27', '2026-11-27', 1, 'Auto-generated member.', '2025-11-27 10:19:30', '2025-11-27 10:19:30');
 
 -- --------------------------------------------------------
 
@@ -419,7 +503,11 @@ INSERT INTO `migrations` (`id`, `migration`, `batch`) VALUES
 (17, '2025_11_15_135414_create_expense_subcategories_table', 1),
 (18, '2025_11_15_135503_create_expenses_table', 1),
 (19, '2025_11_24_150051_create_bank_details_table', 1),
-(20, '2025_11_24_161140_create_bank_transection_details_table', 1);
+(20, '2025_11_24_161140_create_bank_transection_details_table', 1),
+(21, '2025_11_29_103945_create_incomes_table', 2),
+(31, '2025_11_29_104608_create_income_categories_table', 3),
+(32, '2025_11_29_104617_create_income_sub_categories_table', 3),
+(33, '2025_11_29_104618_create_incomes_table', 3);
 
 -- --------------------------------------------------------
 
@@ -452,9 +540,9 @@ CREATE TABLE `orders` (
 --
 
 INSERT INTO `orders` (`id`, `date`, `user_id`, `reg`, `total`, `discount`, `vat`, `payable`, `pay`, `due`, `kitchen`, `paymentMethod`, `customerName`, `customerPhone`, `status`, `created_at`, `updated_at`) VALUES
-(1, '2025-11-27', 1, 2025112711, 1580.00, 17.00, 237.00, 1800.00, 500.00, 1300.00, 0, 1, 'SAMIM-HosseN', '01762164746', 1, '2025-11-27 08:34:25', '2025-11-27 08:38:31'),
-(2, '2025-11-27', 1, 2025112712, 1780.00, 0.00, 0.00, 1780.00, 0.00, 1780.00, 0, 1, 'SAMIM-HosseN', '01762164746', 0, '2025-11-27 08:38:56', '2025-11-27 08:38:56'),
-(3, '2025-11-27', 1, 2025112713, 1930.00, 0.00, 0.00, 1930.00, 100.00, 1830.00, 0, 1, 'SAMIM-HosseN', '01762164746', 1, '2025-11-27 08:45:47', '2025-11-27 08:46:06');
+(15, '2025-11-27', 1, 2025112711, 1580.00, 80.00, 0.00, 1500.00, 500.00, 1000.00, 0, 1, 'SAMIM HOSSEN', '01762164746', 0, '2025-11-27 11:50:19', '2025-11-27 11:50:19'),
+(16, '2025-11-27', 1, 2025112712, 530.00, 30.00, 0.00, 500.00, 0.00, 500.00, 0, 1, 'SAMIM HOSSEN', '01762164746', 0, '2025-11-27 11:52:03', '2025-11-27 11:52:03'),
+(17, '2025-11-27', 1, 2025112713, 2630.00, 30.00, 0.00, 2600.00, 600.00, 2000.00, 0, 1, 'Default Member', '01700000000', 0, '2025-11-27 11:56:39', '2025-11-27 11:56:39');
 
 -- --------------------------------------------------------
 
@@ -500,11 +588,11 @@ CREATE TABLE `payment_methods` (
 --
 
 INSERT INTO `payment_methods` (`id`, `name`, `description`, `status`, `created_at`, `updated_at`) VALUES
-(1, 'Cash', NULL, 1, '2025-11-27 08:32:57', '2025-11-27 08:32:57'),
-(2, 'Bkash', NULL, 1, '2025-11-27 08:32:57', '2025-11-27 08:32:57'),
-(3, 'Nagad', NULL, 1, '2025-11-27 08:32:57', '2025-11-27 08:32:57'),
-(4, 'Rocket', NULL, 1, '2025-11-27 08:32:57', '2025-11-27 08:32:57'),
-(5, 'Card', NULL, 1, '2025-11-27 08:32:57', '2025-11-27 08:32:57');
+(1, 'Cash', NULL, 1, '2025-11-27 10:13:22', '2025-11-27 10:13:22'),
+(2, 'Bkash', NULL, 1, '2025-11-27 10:13:22', '2025-11-27 10:13:22'),
+(3, 'Nagad', NULL, 1, '2025-11-27 10:13:22', '2025-11-27 10:13:22'),
+(4, 'Rocket', NULL, 1, '2025-11-27 10:13:22', '2025-11-27 10:13:22'),
+(5, 'Card', NULL, 1, '2025-11-27 10:13:22', '2025-11-27 10:13:22');
 
 -- --------------------------------------------------------
 
@@ -549,21 +637,46 @@ CREATE TABLE `stocks` (
 --
 
 INSERT INTO `stocks` (`id`, `reg`, `date`, `foodId`, `stockIn`, `stockOut`, `remark`, `status`, `created_at`, `updated_at`) VALUES
-(1, 2025112711, '2025-11-27', 1, 0, 1, NULL, 1, '2025-11-27 08:34:05', '2025-11-27 08:34:05'),
-(2, 2025112711, '2025-11-27', 2, 0, 1, NULL, 1, '2025-11-27 08:34:06', '2025-11-27 08:34:06'),
-(3, 2025112711, '2025-11-27', 3, 0, 1, NULL, 1, '2025-11-27 08:34:07', '2025-11-27 08:34:07'),
-(4, 2025112711, '2025-11-27', 4, 0, 1, NULL, 1, '2025-11-27 08:34:08', '2025-11-27 08:34:08'),
-(5, 2025112712, '2025-11-27', 1, 0, 1, NULL, 1, '2025-11-27 08:38:49', '2025-11-27 08:38:49'),
-(6, 2025112712, '2025-11-27', 2, 0, 1, NULL, 1, '2025-11-27 08:38:50', '2025-11-27 08:38:50'),
-(7, 2025112712, '2025-11-27', 3, 0, 1, NULL, 1, '2025-11-27 08:38:50', '2025-11-27 08:38:50'),
-(8, 2025112712, '2025-11-27', 4, 0, 1, NULL, 1, '2025-11-27 08:38:51', '2025-11-27 08:38:51'),
-(9, 2025112712, '2025-11-27', 5, 0, 1, NULL, 1, '2025-11-27 08:38:52', '2025-11-27 08:38:52'),
-(10, 2025112713, '2025-11-27', 1, 0, 1, NULL, 1, '2025-11-27 08:45:41', '2025-11-27 08:45:41'),
-(11, 2025112713, '2025-11-27', 2, 0, 1, NULL, 1, '2025-11-27 08:45:41', '2025-11-27 08:45:41'),
-(12, 2025112713, '2025-11-27', 3, 0, 1, NULL, 1, '2025-11-27 08:45:42', '2025-11-27 08:45:42'),
-(13, 2025112713, '2025-11-27', 4, 0, 1, NULL, 1, '2025-11-27 08:45:42', '2025-11-27 08:45:42'),
-(14, 2025112713, '2025-11-27', 5, 0, 1, NULL, 1, '2025-11-27 08:45:43', '2025-11-27 08:45:43'),
-(15, 2025112713, '2025-11-27', 6, 0, 1, NULL, 1, '2025-11-27 08:45:43', '2025-11-27 08:45:43');
+(1, 2025112711, '2025-11-27', 1, 0, 1, NULL, 1, '2025-11-27 10:13:34', '2025-11-27 10:13:34'),
+(2, 2025112711, '2025-11-27', 2, 0, 1, NULL, 1, '2025-11-27 10:13:35', '2025-11-27 10:13:35'),
+(3, 2025112711, '2025-11-27', 3, 0, 1, NULL, 1, '2025-11-27 10:13:35', '2025-11-27 10:13:35'),
+(4, 2025112712, '2025-11-27', 1, 0, 1, NULL, 1, '2025-11-27 10:22:16', '2025-11-27 10:22:16'),
+(5, 2025112712, '2025-11-27', 2, 0, 1, NULL, 1, '2025-11-27 10:22:16', '2025-11-27 10:22:16'),
+(6, 2025112712, '2025-11-27', 3, 0, 1, NULL, 1, '2025-11-27 10:22:17', '2025-11-27 10:22:17'),
+(7, 2025112713, '2025-11-27', 1, 0, 1, NULL, 1, '2025-11-27 10:26:03', '2025-11-27 10:26:03'),
+(8, 2025112713, '2025-11-27', 2, 0, 1, NULL, 1, '2025-11-27 10:26:03', '2025-11-27 10:26:03'),
+(9, 2025112713, '2025-11-27', 3, 0, 1, NULL, 1, '2025-11-27 10:26:04', '2025-11-27 10:26:04'),
+(10, 2025112714, '2025-11-27', 2, 0, 1, NULL, 1, '2025-11-27 10:29:37', '2025-11-27 10:29:37'),
+(11, 2025112714, '2025-11-27', 3, 0, 1, NULL, 1, '2025-11-27 10:29:38', '2025-11-27 10:29:38'),
+(12, 2025112714, '2025-11-27', 4, 0, 1, NULL, 1, '2025-11-27 10:29:39', '2025-11-27 10:29:39'),
+(13, 2025112715, '2025-11-27', 14, 0, 1, NULL, 1, '2025-11-27 10:50:54', '2025-11-27 10:50:54'),
+(14, 2025112715, '2025-11-27', 2, 0, 1, NULL, 1, '2025-11-27 10:50:55', '2025-11-27 10:50:55'),
+(15, 2025112715, '2025-11-27', 15, 0, 1, NULL, 1, '2025-11-27 10:50:57', '2025-11-27 10:50:57'),
+(16, 2025112716, '2025-11-27', 1, 0, 1, NULL, 1, '2025-11-27 11:33:52', '2025-11-27 11:33:52'),
+(17, 2025112716, '2025-11-27', 2, 0, 1, NULL, 1, '2025-11-27 11:33:53', '2025-11-27 11:33:53'),
+(18, 2025112716, '2025-11-27', 15, 0, 1, NULL, 1, '2025-11-27 11:33:54', '2025-11-27 11:33:54'),
+(19, 2025112716, '2025-11-27', 20, 0, 1, NULL, 1, '2025-11-27 11:33:57', '2025-11-27 11:33:57'),
+(20, 2025112717, '2025-11-27', 1, 0, 1, NULL, 1, '2025-11-27 11:42:54', '2025-11-27 11:42:54'),
+(21, 2025112717, '2025-11-27', 2, 0, 1, NULL, 1, '2025-11-27 11:42:55', '2025-11-27 11:42:55'),
+(22, 2025112717, '2025-11-27', 3, 0, 1, NULL, 1, '2025-11-27 11:42:55', '2025-11-27 11:42:55'),
+(23, 2025112717, '2025-11-27', 6, 0, 1, NULL, 1, '2025-11-27 11:42:56', '2025-11-27 11:42:56'),
+(24, 2025112718, '2025-11-27', 1, 0, 1, NULL, 1, '2025-11-27 11:49:23', '2025-11-27 11:49:23'),
+(25, 2025112718, '2025-11-27', 2, 0, 1, NULL, 1, '2025-11-27 11:49:24', '2025-11-27 11:49:24'),
+(26, 2025112718, '2025-11-27', 3, 0, 1, NULL, 1, '2025-11-27 11:49:25', '2025-11-27 11:49:25'),
+(27, 2025112711, '2025-11-27', 1, 0, 1, NULL, 1, '2025-11-27 11:50:08', '2025-11-27 11:50:08'),
+(28, 2025112711, '2025-11-27', 2, 0, 1, NULL, 1, '2025-11-27 11:50:09', '2025-11-27 11:50:09'),
+(29, 2025112711, '2025-11-27', 3, 0, 1, NULL, 1, '2025-11-27 11:50:10', '2025-11-27 11:50:10'),
+(30, 2025112711, '2025-11-27', 4, 0, 1, NULL, 1, '2025-11-27 11:50:10', '2025-11-27 11:50:10'),
+(31, 2025112712, '2025-11-27', 3, 0, 1, NULL, 1, '2025-11-27 11:51:57', '2025-11-27 11:51:57'),
+(32, 2025112712, '2025-11-27', 4, 0, 1, NULL, 1, '2025-11-27 11:51:58', '2025-11-27 11:51:58'),
+(33, 2025112713, '2025-11-27', 20, 0, 1, NULL, 1, '2025-11-27 11:56:22', '2025-11-27 11:56:22'),
+(34, 2025112713, '2025-11-27', 19, 0, 1, NULL, 1, '2025-11-27 11:56:23', '2025-11-27 11:56:23'),
+(35, 2025112713, '2025-11-27', 18, 0, 1, NULL, 1, '2025-11-27 11:56:24', '2025-11-27 11:56:24'),
+(36, 2025112713, '2025-11-27', 17, 0, 1, NULL, 1, '2025-11-27 11:56:25', '2025-11-27 11:56:25'),
+(37, 2025112713, '2025-11-27', 13, 0, 1, NULL, 1, '2025-11-27 11:56:25', '2025-11-27 11:56:25'),
+(38, 2025112713, '2025-11-27', 14, 0, 1, NULL, 1, '2025-11-27 11:56:26', '2025-11-27 11:56:26'),
+(39, 2025112713, '2025-11-27', 15, 0, 1, NULL, 1, '2025-11-27 11:56:26', '2025-11-27 11:56:26'),
+(40, 2025112713, '2025-11-27', 16, 0, 1, NULL, 1, '2025-11-27 11:56:27', '2025-11-27 11:56:27');
 
 -- --------------------------------------------------------
 
@@ -674,6 +787,29 @@ ALTER TABLE `food_categories`
   ADD PRIMARY KEY (`id`);
 
 --
+-- Indexes for table `incomes`
+--
+ALTER TABLE `incomes`
+  ADD PRIMARY KEY (`id`),
+  ADD KEY `incomes_category_id_foreign` (`category_id`),
+  ADD KEY `incomes_subcategory_id_foreign` (`subcategory_id`),
+  ADD KEY `incomes_user_id_foreign` (`user_id`);
+
+--
+-- Indexes for table `income_categories`
+--
+ALTER TABLE `income_categories`
+  ADD PRIMARY KEY (`id`),
+  ADD UNIQUE KEY `income_categories_name_unique` (`name`);
+
+--
+-- Indexes for table `income_sub_categories`
+--
+ALTER TABLE `income_sub_categories`
+  ADD PRIMARY KEY (`id`),
+  ADD KEY `income_sub_categories_category_id_foreign` (`category_id`);
+
+--
 -- Indexes for table `memberships`
 --
 ALTER TABLE `memberships`
@@ -762,7 +898,7 @@ ALTER TABLE `bank_transection_details`
 -- AUTO_INCREMENT for table `carts`
 --
 ALTER TABLE `carts`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=16;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=41;
 
 --
 -- AUTO_INCREMENT for table `companies`
@@ -774,13 +910,13 @@ ALTER TABLE `companies`
 -- AUTO_INCREMENT for table `due_collections`
 --
 ALTER TABLE `due_collections`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=18;
 
 --
 -- AUTO_INCREMENT for table `expenses`
 --
 ALTER TABLE `expenses`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- AUTO_INCREMENT for table `expense_categories`
@@ -813,6 +949,24 @@ ALTER TABLE `food_categories`
   MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
 
 --
+-- AUTO_INCREMENT for table `incomes`
+--
+ALTER TABLE `incomes`
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+
+--
+-- AUTO_INCREMENT for table `income_categories`
+--
+ALTER TABLE `income_categories`
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+
+--
+-- AUTO_INCREMENT for table `income_sub_categories`
+--
+ALTER TABLE `income_sub_categories`
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
+
+--
 -- AUTO_INCREMENT for table `memberships`
 --
 ALTER TABLE `memberships`
@@ -822,13 +976,13 @@ ALTER TABLE `memberships`
 -- AUTO_INCREMENT for table `migrations`
 --
 ALTER TABLE `migrations`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=21;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=34;
 
 --
 -- AUTO_INCREMENT for table `orders`
 --
 ALTER TABLE `orders`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=18;
 
 --
 -- AUTO_INCREMENT for table `payment_methods`
@@ -846,7 +1000,7 @@ ALTER TABLE `personal_access_tokens`
 -- AUTO_INCREMENT for table `stocks`
 --
 ALTER TABLE `stocks`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=16;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=41;
 
 --
 -- AUTO_INCREMENT for table `users`
@@ -891,6 +1045,20 @@ ALTER TABLE `expense_subcategories`
 --
 ALTER TABLE `food`
   ADD CONSTRAINT `food_category_id_foreign` FOREIGN KEY (`category_id`) REFERENCES `food_categories` (`id`);
+
+--
+-- Constraints for table `incomes`
+--
+ALTER TABLE `incomes`
+  ADD CONSTRAINT `incomes_category_id_foreign` FOREIGN KEY (`category_id`) REFERENCES `income_categories` (`id`),
+  ADD CONSTRAINT `incomes_subcategory_id_foreign` FOREIGN KEY (`subcategory_id`) REFERENCES `income_sub_categories` (`id`),
+  ADD CONSTRAINT `incomes_user_id_foreign` FOREIGN KEY (`user_id`) REFERENCES `admins` (`id`);
+
+--
+-- Constraints for table `income_sub_categories`
+--
+ALTER TABLE `income_sub_categories`
+  ADD CONSTRAINT `income_sub_categories_category_id_foreign` FOREIGN KEY (`category_id`) REFERENCES `income_categories` (`id`);
 
 --
 -- Constraints for table `orders`

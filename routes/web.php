@@ -11,6 +11,7 @@ use App\Http\Controllers\Order\SaleReportController;
 use App\Http\Controllers\Kitchen\KitchenController;
 use App\Http\Controllers\Stock\StockController;
 use App\Http\Controllers\Expenses\ExpensesController;
+use App\Http\Controllers\Income\IncomeController;
 use App\Http\Controllers\Bank\BankController;
 
 Auth::routes();
@@ -94,6 +95,14 @@ Route::group(['middleware' => ['admin']], function (){
     Route::post('/create-expenses-category', [ExpensesController::class, 'createCategory']);
     Route::post('/create-sub-category-expenses', [ExpensesController::class, 'createSubCategory']);
     Route::get('/print-expenses-invoice/{id}', [ExpensesController::class, 'printExInv']);
+
+    Route::get('/extra-income', [IncomeController::class, 'extraIncomeView'])->name('extra-income');
+    Route::get('/get-incomesubcategories/{categoryId}', [IncomeController::class, 'getSubcategories']);
+    Route::post('/create-income', [IncomeController::class, 'create']);
+    Route::get('/income-setting', [IncomeController::class, 'setting'])->name('income-setting-view');
+    Route::post('/create-income-category', [IncomeController::class, 'createCategory']);
+    Route::post('/create-sub-category-income', [IncomeController::class, 'createSubCategory']);
+    Route::get('/print-income-invoice/{id}', [IncomeController::class, 'printInInv']);
 
     Route::get('/bank-setting', [BankController::class, 'setting'])->name('bank-setting-view');
     Route::post('/create-bank', [BankController::class, 'createBank']);

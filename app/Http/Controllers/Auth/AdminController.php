@@ -213,10 +213,11 @@ class AdminController extends Controller
                 $status = $val->is_active == 1 
                         ? '<span class="badge bg-success">Active</span>' 
                         : '<span class="badge bg-danger">Inactive</span>';
+                $link1 = url('/member-due-details/' . $val->phone);
                 $output .= '
                     <tr>
                         <td class="text-center">' . ($key + 1) . '</td>
-                        <td>' . $val->name . '</td>
+                        <td><a href="' . $link1 . '">' . $val->name . '</a></td>
                         <td>' . $val->email . '</td>
                         <td>' . $val->phone . '</td>
                         <td>' . $val->membership_type . '</td>
