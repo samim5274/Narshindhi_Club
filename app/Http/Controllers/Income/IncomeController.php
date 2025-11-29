@@ -98,4 +98,24 @@ class IncomeController extends Controller
         return redirect()->back()->with('success', 'Income sub-category created successfully!');
     }
 
+    public function totalIncomeReport(){
+        $company = Company::first();
+        $incomes = Income::with('category','subcategory','user')->orderBy('id', 'DESC')->get();
+        return view('income.report.total-income-report', compact('company', 'incomes'));
+    }
+
+    public function filterIncomeDate(Request $request){
+        $from_date = $request->input('from_date');
+        $to_date = $request->input('to_date');
+
+        $company = Company::first();
+        $incomes = Income::with('category','subcategory','user')
+            ->whereBetween('income_date', [$from_date, $to_date])->orderBy('id', 'DESC')->get();
+
+        if($request->has('btnPrint')){
+            return "Printing Functionality Coming Soon";
+        }
+        return view('income.report.total-income-report', compact('company', 'incomes'));
+    }
+
 }

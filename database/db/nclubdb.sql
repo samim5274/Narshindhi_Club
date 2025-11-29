@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost
--- Generation Time: Nov 29, 2025 at 10:08 AM
+-- Generation Time: Nov 29, 2025 at 12:11 PM
 -- Server version: 10.4.32-MariaDB
 -- PHP Version: 8.2.12
 
@@ -71,6 +71,14 @@ CREATE TABLE `bank_details` (
   `updated_at` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
+--
+-- Dumping data for table `bank_details`
+--
+
+INSERT INTO `bank_details` (`id`, `bank_name`, `branch_name`, `account_name`, `account_number`, `routing_number`, `remarks`, `created_at`, `updated_at`) VALUES
+(1, 'Datch Bangla Bank Ltd.', 'Narshindhi Branch', 'Narshindhi Club', 'DBBL1234567890', 'DBBLIBAN9876543210', 'N/A', '2025-11-29 11:06:39', '2025-11-29 11:06:39'),
+(2, 'Islamic Bank PLC', 'Narshindhi Branch', 'Narshindhi Club', 'ISSLB1234567890', 'ISSLBBANK9876543210', 'N/A', '2025-11-29 11:07:04', '2025-11-29 11:07:04');
+
 -- --------------------------------------------------------
 
 --
@@ -88,6 +96,16 @@ CREATE TABLE `bank_transection_details` (
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+--
+-- Dumping data for table `bank_transection_details`
+--
+
+INSERT INTO `bank_transection_details` (`id`, `bank_id`, `user_id`, `amount`, `date`, `status`, `remarks`, `created_at`, `updated_at`) VALUES
+(1, 1, 1, 100000.00, '2025-11-29', 'Deposit', 'N/A', '2025-11-29 11:07:23', '2025-11-29 11:07:23'),
+(2, 2, 1, 50000.00, '2025-11-29', 'Deposit', 'N/A', '2025-11-29 11:07:33', '2025-11-29 11:07:33'),
+(3, 1, 1, 10000.00, '2025-11-29', 'Withdraw', 'N/A', '2025-11-29 11:07:39', '2025-11-29 11:07:39'),
+(4, 2, 1, 15000.00, '2025-11-29', 'Withdraw', 'N/A', '2025-11-29 11:07:54', '2025-11-29 11:07:54');
 
 -- --------------------------------------------------------
 
@@ -125,7 +143,14 @@ INSERT INTO `carts` (`id`, `reg`, `date`, `userId`, `foodId`, `quantity`, `price
 (37, 2025112713, '2025-11-27', 1, 13, 1, 200, '2025-11-27 11:56:25', '2025-11-27 11:56:25'),
 (38, 2025112713, '2025-11-27', 1, 14, 1, 380, '2025-11-27 11:56:26', '2025-11-27 11:56:26'),
 (39, 2025112713, '2025-11-27', 1, 15, 1, 210, '2025-11-27 11:56:26', '2025-11-27 11:56:26'),
-(40, 2025112713, '2025-11-27', 1, 16, 1, 140, '2025-11-27 11:56:27', '2025-11-27 11:56:27');
+(40, 2025112713, '2025-11-27', 1, 16, 1, 140, '2025-11-27 11:56:27', '2025-11-27 11:56:27'),
+(41, 2025112914, '2025-11-29', 1, 1, 1, 250, '2025-11-29 10:50:33', '2025-11-29 10:50:33'),
+(42, 2025112914, '2025-11-29', 1, 2, 1, 800, '2025-11-29 10:50:33', '2025-11-29 10:50:33'),
+(43, 2025112914, '2025-11-29', 1, 3, 1, 180, '2025-11-29 10:50:34', '2025-11-29 10:50:34'),
+(44, 2025112915, '2025-11-29', 1, 1, 1, 250, '2025-11-29 11:04:35', '2025-11-29 11:04:35'),
+(45, 2025112915, '2025-11-29', 1, 2, 1, 800, '2025-11-29 11:04:36', '2025-11-29 11:04:36'),
+(46, 2025112915, '2025-11-29', 1, 3, 1, 180, '2025-11-29 11:04:37', '2025-11-29 11:04:37'),
+(47, 2025112915, '2025-11-29', 1, 4, 1, 350, '2025-11-29 11:04:37', '2025-11-29 11:04:37');
 
 -- --------------------------------------------------------
 
@@ -179,7 +204,8 @@ CREATE TABLE `due_collections` (
 INSERT INTO `due_collections` (`id`, `reg`, `member_id`, `total`, `discount`, `due`, `pay`, `payment_date`, `user_id`, `note`, `created_at`, `updated_at`) VALUES
 (12, NULL, 2, 1000.00, 200.00, 1000.00, 800.00, '2025-11-27', 1, 'Due collection for member phone: 01762164746', '2025-11-27 11:50:31', '2025-11-27 11:50:31'),
 (13, NULL, 2, 1500.00, 100.00, 500.00, 400.00, '2025-11-27', 1, 'Due collection for member phone: 01762164746', '2025-11-27 11:52:17', '2025-11-27 11:52:17'),
-(17, NULL, 1, 2000.00, 500.00, 2000.00, 1500.00, '2025-11-27', 1, 'Due collection for member phone: 01700000000', '2025-11-27 11:59:14', '2025-11-27 11:59:14');
+(17, NULL, 1, 2000.00, 500.00, 2000.00, 1500.00, '2025-11-27', 1, 'Due collection for member phone: 01700000000', '2025-11-27 11:59:14', '2025-11-27 11:59:14'),
+(18, NULL, 2, 2500.00, 0.00, 2500.00, 1000.00, '2025-11-29', 1, 'Due collection for member phone: 01762164746', '2025-11-29 11:05:03', '2025-11-29 11:05:03');
 
 -- --------------------------------------------------------
 
@@ -205,7 +231,8 @@ CREATE TABLE `expenses` (
 --
 
 INSERT INTO `expenses` (`id`, `category_id`, `subcategory_id`, `user_id`, `title`, `description`, `amount`, `expense_date`, `created_at`, `updated_at`) VALUES
-(2, 2, 5, 1, 'Lunch', 'N/A', 500.00, '2025-11-29', '2025-11-29 07:56:16', '2025-11-29 07:56:16');
+(2, 2, 5, 1, 'Lunch', 'N/A', 500.00, '2025-11-28', '2025-11-29 07:56:16', '2025-11-29 07:56:16'),
+(3, 2, 4, 1, 'Bazar', 'N/A', 400.00, '2025-11-29', '2025-11-29 10:08:11', '2025-11-29 10:08:11');
 
 -- --------------------------------------------------------
 
@@ -311,10 +338,10 @@ CREATE TABLE `food` (
 --
 
 INSERT INTO `food` (`id`, `name`, `price`, `category_id`, `stock`, `status`, `image`, `ingredients`, `sku`, `remark`, `created_at`, `updated_at`) VALUES
-(1, 'Cheese Burger', 250, 1, 44, 1, 'cheese_burger.jpg', 'Bun, Cheese, Patty, Lettuce, Tomato', 'TQMKDYSW', 'Stock inserted date of 2025-11-29', '2025-11-27 10:13:22', '2025-11-29 05:46:18'),
-(2, 'Pepperoni Pizza', 800, 2, 23, 1, 'pepperoni_pizza.jpg', 'Dough, Cheese, Pepperoni, Tomato Sauce', 'AG5GFMGB', 'Stock inserted date of 2025-11-29', '2025-11-27 10:13:22', '2025-11-29 05:47:55'),
-(3, 'Chicken Sandwich', 180, 3, 32, 1, 'chicken_sandwich.jpg', 'Bread, Chicken, Lettuce, Mayo', 'L9WNTDAV', '', '2025-11-27 10:13:22', '2025-11-27 11:51:57'),
-(4, 'Spaghetti Bolognese', 350, 4, 17, 1, 'spaghetti.jpg', 'Spaghetti, Tomato Sauce, Beef', '1CZPXFLI', '', '2025-11-27 10:13:22', '2025-11-27 11:51:58'),
+(1, 'Cheese Burger', 250, 1, 42, 1, 'cheese_burger.jpg', 'Bun, Cheese, Patty, Lettuce, Tomato', 'TQMKDYSW', 'Stock inserted date of 2025-11-29', '2025-11-27 10:13:22', '2025-11-29 11:04:35'),
+(2, 'Pepperoni Pizza', 800, 2, 21, 1, 'pepperoni_pizza.jpg', 'Dough, Cheese, Pepperoni, Tomato Sauce', 'AG5GFMGB', 'Stock inserted date of 2025-11-29', '2025-11-27 10:13:22', '2025-11-29 11:04:36'),
+(3, 'Chicken Sandwich', 180, 3, 30, 1, 'chicken_sandwich.jpg', 'Bread, Chicken, Lettuce, Mayo', 'L9WNTDAV', '', '2025-11-27 10:13:22', '2025-11-29 11:04:37'),
+(4, 'Spaghetti Bolognese', 350, 4, 16, 1, 'spaghetti.jpg', 'Spaghetti, Tomato Sauce, Beef', '1CZPXFLI', '', '2025-11-27 10:13:22', '2025-11-29 11:04:37'),
 (5, 'Caesar Salad', 200, 5, 25, 1, 'caesar_salad.jpg', 'Lettuce, Chicken, Caesar Dressing, Croutons', 'OLSZCOTD', '', '2025-11-27 10:13:22', '2025-11-27 10:13:22'),
 (6, 'Chocolate Cake', 150, 6, 20, 1, 'chocolate_cake.jpg', 'Flour, Cocoa, Sugar, Eggs, Butter', 'JUYPBHXL', 'Stock inserted date of 2025-11-29', '2025-11-27 10:13:22', '2025-11-29 05:31:16'),
 (7, 'Coca Cola', 60, 7, 100, 1, 'coca_cola.jpg', 'Carbonated Water, Sugar, Flavor', 'A1ABU3GH', '', '2025-11-27 10:13:22', '2025-11-27 10:13:22'),
@@ -385,7 +412,8 @@ CREATE TABLE `incomes` (
 --
 
 INSERT INTO `incomes` (`id`, `category_id`, `subcategory_id`, `user_id`, `title`, `description`, `amount`, `income_date`, `created_at`, `updated_at`) VALUES
-(1, 6, 12, 1, 'Sale', 'N/A', 150.00, '2025-11-29', '2025-11-29 05:28:16', '2025-11-29 05:28:16');
+(1, 6, 12, 1, 'Sale', 'N/A', 150.00, '2025-11-29', '2025-11-29 05:28:16', '2025-11-29 05:28:16'),
+(2, 6, 12, 1, 'Box Sale', 'N/A', 150.00, '2025-11-29', '2025-11-29 10:34:34', '2025-11-29 10:34:34');
 
 -- --------------------------------------------------------
 
@@ -551,7 +579,9 @@ CREATE TABLE `orders` (
 INSERT INTO `orders` (`id`, `date`, `user_id`, `reg`, `total`, `discount`, `vat`, `payable`, `pay`, `due`, `kitchen`, `paymentMethod`, `customerName`, `customerPhone`, `status`, `created_at`, `updated_at`) VALUES
 (15, '2025-11-27', 1, 2025112711, 1580.00, 80.00, 0.00, 1500.00, 500.00, 1000.00, 0, 1, 'SAMIM HOSSEN', '01762164746', 0, '2025-11-27 11:50:19', '2025-11-27 11:50:19'),
 (16, '2025-11-27', 1, 2025112712, 530.00, 30.00, 0.00, 500.00, 0.00, 500.00, 0, 1, 'SAMIM HOSSEN', '01762164746', 0, '2025-11-27 11:52:03', '2025-11-27 11:52:03'),
-(17, '2025-11-27', 1, 2025112713, 2630.00, 30.00, 0.00, 2600.00, 600.00, 2000.00, 0, 1, 'Default Member', '01700000000', 0, '2025-11-27 11:56:39', '2025-11-27 11:56:39');
+(17, '2025-11-27', 1, 2025112713, 2630.00, 30.00, 0.00, 2600.00, 600.00, 2000.00, 0, 1, 'Default Member', '01700000000', 0, '2025-11-27 11:56:39', '2025-11-27 11:56:39'),
+(18, '2025-11-29', 1, 2025112914, 1230.00, 30.00, 0.00, 1200.00, 1200.00, 0.00, 0, 1, '0', '0', 1, '2025-11-29 10:50:46', '2025-11-29 10:50:46'),
+(19, '2025-11-29', 1, 2025112915, 1580.00, 80.00, 0.00, 1500.00, 500.00, 1000.00, 0, 1, 'SAMIM HOSSEN', '01762164746', 0, '2025-11-29 11:04:47', '2025-11-29 11:04:47');
 
 -- --------------------------------------------------------
 
@@ -775,7 +805,14 @@ INSERT INTO `stocks` (`id`, `reg`, `date`, `foodId`, `stockIn`, `stockOut`, `rem
 (40, 2025112713, '2025-11-27', 16, 0, 1, NULL, 1, '2025-11-27 11:56:27', '2025-11-27 11:56:27'),
 (41, 0, '2025-11-29', 6, 6, 0, 'Stock In', 0, '2025-11-29 05:31:16', '2025-11-29 05:31:16'),
 (42, 0, '2025-11-29', 1, 1, 0, 'Stock In', 0, '2025-11-29 05:46:18', '2025-11-29 05:46:18'),
-(43, 0, '2025-11-29', 2, 2, 0, 'Stock In', 3, '2025-11-29 05:47:55', '2025-11-29 05:47:55');
+(43, 0, '2025-11-29', 2, 2, 0, 'Stock In', 3, '2025-11-29 05:47:55', '2025-11-29 05:47:55'),
+(44, 2025112914, '2025-11-29', 1, 0, 1, NULL, 1, '2025-11-29 10:50:33', '2025-11-29 10:50:33'),
+(45, 2025112914, '2025-11-29', 2, 0, 1, NULL, 1, '2025-11-29 10:50:33', '2025-11-29 10:50:33'),
+(46, 2025112914, '2025-11-29', 3, 0, 1, NULL, 1, '2025-11-29 10:50:34', '2025-11-29 10:50:34'),
+(47, 2025112915, '2025-11-29', 1, 0, 1, NULL, 1, '2025-11-29 11:04:35', '2025-11-29 11:04:35'),
+(48, 2025112915, '2025-11-29', 2, 0, 1, NULL, 1, '2025-11-29 11:04:36', '2025-11-29 11:04:36'),
+(49, 2025112915, '2025-11-29', 3, 0, 1, NULL, 1, '2025-11-29 11:04:37', '2025-11-29 11:04:37'),
+(50, 2025112915, '2025-11-29', 4, 0, 1, NULL, 1, '2025-11-29 11:04:37', '2025-11-29 11:04:37');
 
 -- --------------------------------------------------------
 
@@ -999,19 +1036,19 @@ ALTER TABLE `admins`
 -- AUTO_INCREMENT for table `bank_details`
 --
 ALTER TABLE `bank_details`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- AUTO_INCREMENT for table `bank_transection_details`
 --
 ALTER TABLE `bank_transection_details`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
 -- AUTO_INCREMENT for table `carts`
 --
 ALTER TABLE `carts`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=41;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=48;
 
 --
 -- AUTO_INCREMENT for table `companies`
@@ -1023,13 +1060,13 @@ ALTER TABLE `companies`
 -- AUTO_INCREMENT for table `due_collections`
 --
 ALTER TABLE `due_collections`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=18;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=19;
 
 --
 -- AUTO_INCREMENT for table `expenses`
 --
 ALTER TABLE `expenses`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- AUTO_INCREMENT for table `expense_categories`
@@ -1065,7 +1102,7 @@ ALTER TABLE `food_categories`
 -- AUTO_INCREMENT for table `incomes`
 --
 ALTER TABLE `incomes`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- AUTO_INCREMENT for table `income_categories`
@@ -1095,7 +1132,7 @@ ALTER TABLE `migrations`
 -- AUTO_INCREMENT for table `orders`
 --
 ALTER TABLE `orders`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=18;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=20;
 
 --
 -- AUTO_INCREMENT for table `payment_methods`
@@ -1125,7 +1162,7 @@ ALTER TABLE `product_stock_details`
 -- AUTO_INCREMENT for table `stocks`
 --
 ALTER TABLE `stocks`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=44;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=51;
 
 --
 -- AUTO_INCREMENT for table `users`

@@ -14,6 +14,7 @@ use App\Http\Controllers\Expenses\ExpensesController;
 use App\Http\Controllers\Income\IncomeController;
 use App\Http\Controllers\Bank\BankController;
 use App\Http\Controllers\Purchase\PurchaseController;
+use App\Http\Controllers\Account\AccountController;
 
 Auth::routes();
 
@@ -96,6 +97,8 @@ Route::group(['middleware' => ['admin']], function (){
     Route::post('/create-expenses-category', [ExpensesController::class, 'createCategory']);
     Route::post('/create-sub-category-expenses', [ExpensesController::class, 'createSubCategory']);
     Route::get('/print-expenses-invoice/{id}', [ExpensesController::class, 'printExInv']);
+    Route::get('/total-expenses-report', [ExpensesController::class, 'totalExpensesReport'])->name('total-expenses-report');
+    Route::get('/filter-expenses-date', [ExpensesController::class, 'filterExpensesDate'])->name('filter-expenses-date');
 
     Route::get('/extra-income', [IncomeController::class, 'extraIncomeView'])->name('extra-income');
     Route::get('/get-incomesubcategories/{categoryId}', [IncomeController::class, 'getSubcategories']);
@@ -104,6 +107,8 @@ Route::group(['middleware' => ['admin']], function (){
     Route::post('/create-income-category', [IncomeController::class, 'createCategory']);
     Route::post('/create-sub-category-income', [IncomeController::class, 'createSubCategory']);
     Route::get('/print-income-invoice/{id}', [IncomeController::class, 'printInInv']);
+    Route::get('/total-income-report', [IncomeController::class, 'totalIncomeReport'])->name('total-income-report');
+    Route::get('/filter-income-date', [IncomeController::class, 'filterIncomeDate'])->name('filter-income-date');
 
     Route::get('/bank-setting', [BankController::class, 'setting'])->name('bank-setting-view');
     Route::post('/create-bank', [BankController::class, 'createBank']);
@@ -134,4 +139,7 @@ Route::group(['middleware' => ['admin']], function (){
     Route::get('/filter-stock-in-date', [PurchaseController::class, 'filterStockInDate'])->name('filter-stock-in-date');
     Route::get('/total-stock-out-report', [PurchaseController::class, 'totalStockOutReport'])->name('total-stock-out-report');
     Route::get('/filter-stock-out-date', [PurchaseController::class, 'filterStockOutDate'])->name('filter-stock-out-date');
+
+    Route::get('/total-transection', [AccountController::class, 'totalTransection'])->name('total-transection');
+    Route::get('/filter-total-transection', [AccountController::class, 'filterTotalTransection'])->name('filter-total-transection');
 });

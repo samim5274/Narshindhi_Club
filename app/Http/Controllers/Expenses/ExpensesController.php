@@ -94,4 +94,26 @@ class ExpensesController extends Controller
         }
         return view('expenses.print.print-expenses-invoice', compact('company', 'expenses'));
     }
+
+    public function totalExpensesReport(){
+        $company = Company::first();
+        $expenses = Expense::with('category','subcategory','user')->orderByDesc('id')->get();
+        return view('expenses.report.expenses_report', compact('company','expenses'));
+    }
+
+    public function filterExpensesDate(Request $request){
+        $company = Company::first();
+
+        $from_date = $request->from_date;
+        $to_date = $request->to_date;
+
+        $expenses = Expense::with('category','subcategory','user')->when($from_date && $to_date, function ($query) use ($from_date, $to_date) {
+                return $query->whereBetween('expense_date', [$from_date, $to_date]);
+            })->orderByDesc('id')->get();
+
+        if($request->has('btnPrint')){
+            return "Printing Functionality Coming Soon";
+        }
+        return view('expenses.report.expenses_report', compact('company','expenses'));
+    }
 }

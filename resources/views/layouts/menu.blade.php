@@ -111,7 +111,7 @@
                         <li class="pc-item pc-hasmenu">
                             <a href="#" class="pc-link"><i class="fa-solid fa-money-check-dollar"></i> Account Report<span class="pc-arrow"><i data-feather="chevron-right"></i></span></a>
                             <ul class="pc-submenu">
-                                <li class="pc-item"><a class="pc-link" href="#"><i class="fa-solid fa-money-bill-1-wave"></i> Total Expenses</a></li>
+                                <li class="pc-item"><a class="pc-link" href="{{ url('/total-expenses-report') }}"><i class="fa-solid fa-money-bill-1-wave"></i> Total Expenses</a></li>
                                 <li class="pc-item"><a class="pc-link" href="#"><i class="fa-solid fa-money-bill-trend-up"></i> Date Expenses</a></li>
                                 <li class="pc-item"><a class="pc-link" href="#"><i class="fa-solid fa-yen-sign"></i> Category</a></li>
                                 <li class="pc-item"><a class="pc-link" href="#"><i class="fa-solid fa-wallet"></i> Sub-Category</a></li>
@@ -124,7 +124,7 @@
                         <li class="pc-item pc-hasmenu">
                             <a href="#" class="pc-link"><i class="fa-solid fa-money-check-dollar"></i> Account Report<span class="pc-arrow"><i data-feather="chevron-right"></i></span></a>
                             <ul class="pc-submenu">
-                                <li class="pc-item"><a class="pc-link" href="#"><i class="fa-solid fa-money-bill-1-wave"></i> Total Income</a></li>
+                                <li class="pc-item"><a class="pc-link" href="{{ url('/total-income-report') }}"><i class="fa-solid fa-money-bill-1-wave"></i> Total Income</a></li>
                                 <li class="pc-item"><a class="pc-link" href="#"><i class="fa-solid fa-money-bill-trend-up"></i> Date Income</a></li>
                                 <li class="pc-item"><a class="pc-link" href="#"><i class="fa-solid fa-yen-sign"></i> Category</a></li>
                                 <li class="pc-item"><a class="pc-link" href="#"><i class="fa-solid fa-wallet"></i> Sub-Category</a></li>
@@ -132,7 +132,7 @@
                         </li>
                         <hr>
                     </ul>
-                </li>
+                </li>                
                 <li class="pc-item pc-hasmenu">
                     <a href="#" class="pc-link"><span class="pc-micon"><i class="fa-solid fa-building-columns"></i></span><span class="pc-mtext">Bank Account</span><span class="pc-arrow"><i data-feather="chevron-right"></i></span></a>
                     <ul class="pc-submenu">
@@ -148,6 +148,13 @@
                                 <li class="pc-item"><a class="pc-link" href="{{ route('total-transection') }}"><i class="fa-solid fa-yen-sign"></i> Total Transection</a></li>
                             </ul>
                         </li>
+                    </ul>
+                </li>
+                <li class="pc-item pc-hasmenu">
+                    <a href="#" class="pc-link"><span class="pc-micon"><i class="fa-solid fa-money-bill-transfer"></i></span><span class="pc-mtext">T.T.S</span><span class="pc-arrow"><i data-feather="chevron-right"></i></span></a>
+                    <ul class="pc-submenu">
+                        <li class="pc-item"><a class="pc-link" href="{{ route('total-transection') }}"><i class="fa-solid fa-money-check-dollar"></i> Total Transection</a></li>
+                        
                     </ul>
                 </li>
 
