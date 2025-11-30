@@ -119,6 +119,19 @@
                     <div class="card-body p-3">
                         <div class="row g-3">
 
+                            <!-- Total Sale -->
+                            <div class="col-12 col-md-6">
+                                <div class="d-flex align-items-center p-3 bg-light rounded shadow-sm">
+                                    <div class="icon bg-info text-white rounded-circle d-flex justify-content-center align-items-center me-3" style="width:50px; height:50px;">
+                                        <i class="fa-solid fa-cart-shopping fa-lg"></i>
+                                    </div>
+                                    <div class="flex-grow-1">
+                                        <div class="text-muted small">Total Sale</div>
+                                        <div class="fw-bold fs-5 text-info">+ ৳{{ number_format($totalOrders) }}</div>
+                                    </div>
+                                </div>
+                            </div>
+
                             <!-- Expenses -->
                             <div class="col-12 col-md-6">
                                 <div class="d-flex align-items-center p-3 bg-light rounded shadow-sm">
@@ -128,19 +141,6 @@
                                     <div class="flex-grow-1">
                                         <div class="text-muted small">Expenses</div>
                                         <div class="fw-bold fs-5 text-danger">- ৳{{ number_format($totalExpenses) }}</div>
-                                    </div>
-                                </div>
-                            </div>
-
-                            <!-- Bank Withdraw -->
-                            <div class="col-12 col-md-6">
-                                <div class="d-flex align-items-center p-3 bg-light rounded shadow-sm">
-                                    <div class="icon bg-secondary text-white rounded-circle d-flex justify-content-center align-items-center me-3" style="width:50px; height:50px;">
-                                        <i class="fa-solid fa-right-left fa-lg"></i>
-                                    </div>
-                                    <div class="flex-grow-1">
-                                        <div class="text-muted small">Bank Withdraw</div>
-                                        <div class="fw-bold fs-5 text-secondary">- ৳{{ number_format($bankWithdraw) }}</div>
                                     </div>
                                 </div>
                             </div>
@@ -158,6 +158,19 @@
                                 </div>
                             </div>
 
+                            <!-- Bank Withdraw -->
+                            <div class="col-12 col-md-6">
+                                <div class="d-flex align-items-center p-3 bg-light rounded shadow-sm">
+                                    <div class="icon bg-secondary text-white rounded-circle d-flex justify-content-center align-items-center me-3" style="width:50px; height:50px;">
+                                        <i class="fa-solid fa-right-left fa-lg"></i>
+                                    </div>
+                                    <div class="flex-grow-1">
+                                        <div class="text-muted small">Bank Withdraw</div>
+                                        <div class="fw-bold fs-5 text-secondary">- ৳{{ number_format($bankWithdraw) }}</div>
+                                    </div>
+                                </div>
+                            </div>
+
                             <!-- Due Collection -->
                             <div class="col-12 col-md-6">
                                 <div class="d-flex align-items-center p-3 bg-light rounded shadow-sm">
@@ -167,19 +180,6 @@
                                     <div class="flex-grow-1">
                                         <div class="text-muted small">Due Collection</div>
                                         <div class="fw-bold fs-5 text-primary">+ ৳{{ number_format($totalDueCollection) }}</div>
-                                    </div>
-                                </div>
-                            </div>
-
-                            <!-- Total Sale -->
-                            <div class="col-12 col-md-6">
-                                <div class="d-flex align-items-center p-3 bg-light rounded shadow-sm">
-                                    <div class="icon bg-info text-white rounded-circle d-flex justify-content-center align-items-center me-3" style="width:50px; height:50px;">
-                                        <i class="fa-solid fa-cart-shopping fa-lg"></i>
-                                    </div>
-                                    <div class="flex-grow-1">
-                                        <div class="text-muted small">Total Sale</div>
-                                        <div class="fw-bold fs-5 text-info">+ ৳{{ number_format($totalOrders) }}</div>
                                     </div>
                                 </div>
                             </div>

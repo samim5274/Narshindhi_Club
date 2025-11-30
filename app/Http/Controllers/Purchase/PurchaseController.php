@@ -233,4 +233,14 @@ class PurchaseController extends Controller
         return view('purchase.report.total_stock_report', compact('company','productsStock'));
     }
 
+    public function specificProductStock($id)
+    {
+        $company = Company::first();
+        $productStockDetails = ProductStockDetails::with('product')->where('product_id', $id)->orderBy('date', 'desc')->get();  
+        if($productStockDetails->isEmpty()){
+            return redirect()->back()->with('error', 'No stock details found for the selected product.');
+        }
+        return view('purchase.report.specific_product_stock', compact('company','productStockDetails'));
+    }
+
 }

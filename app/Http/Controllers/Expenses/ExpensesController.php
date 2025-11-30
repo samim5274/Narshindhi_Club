@@ -116,4 +116,68 @@ class ExpensesController extends Controller
         }
         return view('expenses.report.expenses_report', compact('company','expenses'));
     }
+
+    public function categoryExpenses(){
+        $company = Company::first();
+        $categorys = ExpenseCategory::all();
+        $expenses = Expense::with('category','subcategory','user')->orderByDesc('id')->get();
+        return view('expenses.report.category_expenses_report', compact('company','expenses','categorys'));
+    }
+
+    public function filterCategoryExpenses(Request $request){
+        $company = Company::first();
+        $categorys = ExpenseCategory::all();
+
+        $request->validate([
+            'from_date'    => 'required|date',
+            'to_date'      => 'required|date|after_or_equal:from_date',
+            'category_id'  => 'required',
+        ]);
+
+        $category_id = $request->category_id;
+
+        $from_date = $request->from_date;
+        $to_date = $request->to_date;
+
+        $expenses = Expense::where('category_id', $category_id)->whereBetween('expense_date', [$from_date, $to_date])->with('category','subcategory','user')->orderByDesc('id')->get();
+
+        if ($request->has('btnPrint')) {
+            return "Printing Functionality Coming Soon...!"; // or PDF generation
+        }
+
+        return view('expenses.report.category_expenses_report', compact('company','expenses','categorys'));
+    }
+
+    public function subcategoryExpenses(){
+        $company = Company::first();
+        $categorys = ExpenseCategory::all();
+        $expenses = Expense::with('category','subcategory','user')->orderByDesc('id')->get();
+        return view('expenses.report.sub_category_expenses_report', compact('company','expenses','categorys'));
+    }
+
+    public function filterSubCategoryExpenses(Request $request){
+        $request->validate([
+            'from_date'         => 'required|date',
+            'to_date'           => 'required|date|after_or_equal:from_date',
+            'category_id'       => 'required',
+            'subcategory_id'    => 'required',
+        ]);
+
+        $company = Company::first();
+        $categorys = ExpenseCategory::all();
+
+        $category_id = $request->category_id;
+        $sub_category_id = $request->subcategory_id;
+
+        $from_date = $request->from_date;
+        $to_date = $request->to_date;
+
+        $expenses = Expense::where('category_id', $category_id)->where('subcategory_id', $sub_category_id)->whereBetween('expense_date', [$from_date, $to_date])->with('category','subcategory','user')->orderByDesc('id')->get();
+
+        if ($request->has('btnPrint')) {
+            return "Printing Functionality Coming Soon...!"; // or PDF generation
+        }
+
+        return view('expenses.report.sub_category_expenses_report', compact('company','expenses','categorys'));
+    }
 }

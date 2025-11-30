@@ -99,6 +99,10 @@ Route::group(['middleware' => ['admin']], function (){
     Route::get('/print-expenses-invoice/{id}', [ExpensesController::class, 'printExInv']);
     Route::get('/total-expenses-report', [ExpensesController::class, 'totalExpensesReport'])->name('total-expenses-report');
     Route::get('/filter-expenses-date', [ExpensesController::class, 'filterExpensesDate'])->name('filter-expenses-date');
+    Route::get('/category-expenses-report', [ExpensesController::class, 'categoryExpenses'])->name('category-wise-expenses-report');
+    Route::get('/filter-expenses-category', [ExpensesController::class, 'filterCategoryExpenses']);
+    Route::get('/sub-category-expenses-report', [ExpensesController::class, 'subcategoryExpenses'])->name('sub-category-wise-expenses-report');
+    Route::get('/filter-expenses-sub-category', [ExpensesController::class, 'filterSubCategoryExpenses']);
 
     Route::get('/extra-income', [IncomeController::class, 'extraIncomeView'])->name('extra-income');
     Route::get('/get-incomesubcategories/{categoryId}', [IncomeController::class, 'getSubcategories']);
@@ -132,6 +136,7 @@ Route::group(['middleware' => ['admin']], function (){
     Route::post('/product-stock-in/{id}', [PurchaseController::class, 'productStockIn'])->name('product-stock-in');
     Route::get('/purchase-stock-out-view', [PurchaseController::class, 'purchaseStockOutView'])->name('purchase-stock-out-view');
     Route::post('/product-stock-out/{id}', [PurchaseController::class, 'productStockOut'])->name('product-stock-out');
+    Route::get('/specific-product-stock/{id}', [PurchaseController::class, 'specificProductStock'])->name('specific-product-stock');
     
     Route::get('/total-stock-report', [PurchaseController::class, 'totalStockReport'])->name('total-stock-report');
     Route::get('/filter-stock-date', [PurchaseController::class, 'filterStockReport'])->name('filter-stock-report');

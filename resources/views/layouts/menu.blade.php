@@ -112,9 +112,9 @@
                             <a href="#" class="pc-link"><i class="fa-solid fa-money-check-dollar"></i> Account Report<span class="pc-arrow"><i data-feather="chevron-right"></i></span></a>
                             <ul class="pc-submenu">
                                 <li class="pc-item"><a class="pc-link" href="{{ url('/total-expenses-report') }}"><i class="fa-solid fa-money-bill-1-wave"></i> Total Expenses</a></li>
-                                <li class="pc-item"><a class="pc-link" href="#"><i class="fa-solid fa-money-bill-trend-up"></i> Date Expenses</a></li>
-                                <li class="pc-item"><a class="pc-link" href="#"><i class="fa-solid fa-yen-sign"></i> Category</a></li>
-                                <li class="pc-item"><a class="pc-link" href="#"><i class="fa-solid fa-wallet"></i> Sub-Category</a></li>
+                                <!-- <li class="pc-item"><a class="pc-link" href="#"><i class="fa-solid fa-money-bill-trend-up"></i> Date Expenses</a></li> -->
+                                <li class="pc-item"><a class="pc-link" href="{{ url('/category-expenses-report') }}"><i class="fa-solid fa-yen-sign"></i> Category</a></li>
+                                <li class="pc-item"><a class="pc-link" href="{{ url('/sub-category-expenses-report') }}"><i class="fa-solid fa-wallet"></i> Sub-Category</a></li>
                             </ul>
                         </li>
                         <hr>

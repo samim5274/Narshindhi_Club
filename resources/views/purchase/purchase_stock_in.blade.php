@@ -89,7 +89,7 @@
                                     @foreach($products as $key => $val)
                                     <tr>
                                         <td>{{$loop->iteration}}</td>
-                                        <td>{{$val->name}}</td>
+                                        <td><a href="{{ url('/specific-product-stock/'. $val->id) }}">{{$val->name}}</a></td>
                                         <td>{{$val->stock}}</td>
                                         <td class="text-center">
                                             <button class="btn btn-sm btn-outline-primary"

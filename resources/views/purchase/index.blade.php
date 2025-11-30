@@ -92,7 +92,7 @@
                             @foreach($products as $key => $val)
                             <tr>
                                 <td>{{$loop->iteration}}</td>
-                                <td>{{$val->name}}</td>
+                                <td><a href="{{ url('/specific-product-stock/'. $val->id) }}">{{$val->name}}</a></td>
                                 <td>৳{{$val->purchase_price}}/-</td>
                                 <td>৳{{$val->total_price}}/-</td>
                                 <td>{{$val->stock}}</td>

@@ -32,18 +32,18 @@
                         </form>
                     </div>
                 </li>
-                <li class="pc-h-item d-none d-md-inline-flex">
+                <!-- <li class="pc-h-item d-none d-md-inline-flex">
                     <form class="header-search">
                         <i data-feather="search" class="icon-search"></i>
                         <input type="search" class="form-control" placeholder="Search here. . .">
                     </form>
-                </li>
+                </li> -->
             </ul>
         </div>
         <!-- [Mobile Media Block end] -->
         <div class="ms-auto">
             <ul class="list-unstyled">
-                <li class="dropdown pc-h-item">
+                <!-- <li class="dropdown pc-h-item">
                     <a class="pc-head-link dropdown-toggle arrow-none me-0"
                         data-bs-toggle="dropdown"
                         href="#"
@@ -115,7 +115,7 @@
                         <a href="#!" class="link-primary">View all</a>
                         </div>
                     </div>
-                </li>
+                </li> -->
                 <li class="dropdown pc-h-item header-user-profile">
                 <a
                     class="pc-head-link dropdown-toggle arrow-none me-0"
