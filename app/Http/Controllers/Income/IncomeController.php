@@ -118,4 +118,29 @@ class IncomeController extends Controller
         return view('income.report.total-income-report', compact('company', 'incomes'));
     }
 
+    public function categoryIncomeReport(){
+        $company = Company::first();
+        $categories = IncomeCategory::all();
+        $incomes = Income::with('category','subcategory','user')->orderBy('id', 'DESC')->get();
+        return view('income.report.category-income-report', compact('company', 'incomes', 'categories'));
+    }
+
+    public function filterIncomeReport(Request $request){
+        $request->validate([
+            'from_date'    => 'required|date',
+            'to_date'      => 'required|date|after_or_equal:from_date',
+            'category_id'  => 'required',
+        ]);
+        $from_date = $request->input('from_date');
+        $to_date = $request->input('to_date');
+        $category_id = $request->input('category_id');
+
+        $company = Company::first();
+        $categories = IncomeCategory::all();
+        $incomes = Income::where('category_id', $category_id)->whereBetween('income_date', [$from_date, $to_date])->with('category','subcategory','user')->orderBy('id', 'DESC')->get();
+        if($request->has('btnPrint')){
+            return "Printing Functionality Coming Soon";
+        }
+        return view('income.report.category-income-report', compact('company', 'incomes', 'categories'));
+    }
 }

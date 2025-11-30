@@ -68,7 +68,7 @@
             <!-- [ Main Content ] start -->
             <div class="table-responsive">
                 <div class="d-flex justify-content-between align-items-center mb-3">
-                    <h5>Income Report</h5>
+                    <h5> <small><a href="{{ url()->previous() }}"><i class="fa-solid fa-angles-left"></i>Go Back</a></small> Category wise Income Report</h5>
                 </div>
                 <!-- Table Container with Scroll -->
                 <div class="table-responsive" style="max-height: 750px; overflow-y: auto;">
@@ -76,9 +76,20 @@
                         <thead class="table-dark">
                            <tr class="table-light">
                                 <th colspan="6" class="text-center">
-                                    <form action="{{ url('/filter-income-date') }}" method="GET" class="d-flex justify-content-center align-items-center gap-2">
-                                        <input type="date" name="from_date" class="form-control form-control-sm" value="{{ request('from_date') }}" max="{{ now()->toDateString() }}">
-                                        <input type="date" name="to_date" class="form-control form-control-sm" value="{{ request('to_date') }}" max="{{ now()->toDateString() }}">
+                                    <form action="{{ url('/filter-incomes-category') }}" method="GET" class="d-flex justify-content-center align-items-center gap-2">
+                                        <input type="date" name="from_date" class="form-control form-control-sm"
+                                            value="{{ request('from_date') }}" max="{{ now()->toDateString() }}">
+                                        <input type="date" name="to_date" class="form-control form-control-sm"
+                                            value="{{ request('to_date') }}" max="{{ now()->toDateString() }}">
+                                        <select name="category_id" class="form-control form-control-sm">
+                                            <option value="">-- Select Income Category --</option>
+                                            @foreach($categories as $cat)
+                                                <option value="{{ $cat->id }}" 
+                                                    {{ request('category_id') == $cat->id ? 'selected' : '' }}>
+                                                    {{ $cat->name }}
+                                                </option>
+                                            @endforeach
+                                        </select>
                                         <button type="submit" class="btn btn-sm btn-primary">
                                             <i class="fa-solid fa-filter me-1"></i> Filter
                                         </button>
@@ -113,7 +124,7 @@
                                     </td>
 
                                     <td class="text-center">
-                                        {{ \Carbon\Carbon::parse($val->expense_date)->format('d M, Y') }}
+                                        {{ \Carbon\Carbon::parse($val->income_date)->format('d M, Y') }}
                                     </td>
 
                                     <td class="text-center fw-bold text-danger">
