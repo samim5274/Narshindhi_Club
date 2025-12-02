@@ -115,6 +115,8 @@ Route::group(['middleware' => ['admin']], function (){
     Route::get('/filter-income-date', [IncomeController::class, 'filterIncomeDate'])->name('filter-income-date');
     Route::get('/category-income-report', [IncomeController::class, 'categoryIncomeReport'])->name('category-wise-income-report');
     Route::get('/filter-incomes-category', [IncomeController::class, 'filterIncomeReport']);
+    Route::get('/sub-category-income-report', [IncomeController::class, 'SubcategoryReport'])->name('sub-category-report-date');
+    Route::get('/filter-incomes-sub-category', [IncomeController::class, 'filterIncomeSubCatReport']);
 
     Route::get('/bank-setting', [BankController::class, 'setting'])->name('bank-setting-view');
     Route::post('/create-bank', [BankController::class, 'createBank']);

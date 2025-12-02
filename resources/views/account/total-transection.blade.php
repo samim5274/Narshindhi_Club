@@ -84,6 +84,9 @@
                                         <button type="submit" class="btn btn-sm btn-primary" value="1" name="btnPrint">
                                             <i class="fa-solid fa-print me-1"></i> Print
                                         </button>
+                                        <button type="submit" class="btn btn-sm btn-primary" value="2" name="btnDownload">
+                                            <i class="fa-solid fa-download me-1"></i> Download
+                                        </button>
                                     </form>
                                 </th>
                             </tr>

@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Carbon;
+use PDF;
 
 use App\Models\Company;
 use App\Models\BankTransectionDetail;
@@ -61,6 +62,22 @@ class AccountController extends Controller
 
         if($request->has('btnPrint')){
             return "Printing Functionality Coming Soon";
+        }
+
+        if($request->has('btnDownload')){
+            $pdf = PDF::loadView('account.download-daily-transection-report', [
+                'company' => $company,
+                'totalExpenses' => $totalExpenses,
+                'totalIncome' => $totalIncome,
+                'totalDueCollection' => $totalDueCollection,
+                'totalOrders' => $totalOrders,
+                'bankDeposit' => $bankDeposit,
+                'bankWithdraw' => $bankWithdraw,
+                'fromDate' => $fromDate,
+                'toDate' => $toDate,
+            ]);
+
+            return $pdf->download('total-transaction-report.pdf');
         }
 
         return view('account.total-transection', 
