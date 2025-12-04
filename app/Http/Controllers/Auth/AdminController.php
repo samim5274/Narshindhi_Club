@@ -16,6 +16,7 @@ use App\Models\Membership;
 class AdminController extends Controller
 {
     public function login(){
+        Auth::guard('admin')->logout();
         return view('auth.login');
     }
 
